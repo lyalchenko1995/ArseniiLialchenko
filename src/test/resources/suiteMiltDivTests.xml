@@ -1,0 +1,9 @@
+<suite name="suiteMiltDivTests" verbose="1" >
+    <test name="Test" >
+        <groups>
+            <run>
+                <include name="multiplyDivision"></include>
+            </run>
+        </groups>
+    </test>
+</suite>

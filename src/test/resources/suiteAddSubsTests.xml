@@ -1,0 +1,9 @@
+<suite name="suiteAddSubsTests" verbose="1" >
+    <test name="Test" >
+        <groups>
+            <run>
+                <include name="additionalSubstraction"></include>
+            </run>
+        </groups>
+    </test>
+</suite>

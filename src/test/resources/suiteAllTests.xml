@@ -1,0 +1,10 @@
+<suite name="suiteAllTests" verbose="1" >
+    <test name="Test" >
+        <classes>
+            <class name="com.epam.tc.hw1.CalculatorAdditionalTest"/>
+            <class name="com.epam.tc.hw1.CalculatorDivisionTest"/>
+            <class name="com.epam.tc.hw1.CalculatorMultiplyTest"/>
+            <class name="com.epam.tc.hw1.CalculatorSubstractionTest"/>
+        </classes>
+    </test>
+</suite>
