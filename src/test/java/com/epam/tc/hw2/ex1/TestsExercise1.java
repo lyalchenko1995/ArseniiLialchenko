@@ -10,9 +10,9 @@ public class TestsExercise1 extends RunCloseWebSite {
     //2 Assert Browser title
     @Test(priority = 1)
     public void testTitle() {
-        SoftAssertions softTitle = new SoftAssertions();
-        softTitle.assertThat(webDriver.getTitle()).isEqualTo("Home Page");
-        softTitle.assertAll();
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(webDriver.getTitle()).isEqualTo("Home Page");
+        softAssertions.assertAll();
     }
 
     //3 Perform login
