@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class CalculatorMultiplyTest extends ArithmeticOperations {
 
-    @DataProvider
+    @DataProvider(name = "multCorrectData")
     public static Object[][] multCorrectData() {
         return new Object[][] {
                 {1.0, 2.0, 2.0},
@@ -14,7 +14,7 @@ public class CalculatorMultiplyTest extends ArithmeticOperations {
         };
     }
 
-    @Test(dataProvider = "multCorrectData", groups = "multiplyDivision")
+    @Test(dataProvider = "multCorrectData", groups = {"multiplyDivision"})
     public void addTest(double a, double b, double res) {
         double result = calculator.mult(a, b);
         Assert.assertEquals(result, res, 0.0001);

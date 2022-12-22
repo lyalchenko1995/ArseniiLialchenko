@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class CalculatorSubstractionTest extends ArithmeticOperations {
 
-    @DataProvider
+    @DataProvider(name = "subsCorrectData")
     public static Object[][] subsCorrectData() {
         return new Object[][] {
                 {3.0, 2.0, 1.0},
@@ -14,7 +14,7 @@ public class CalculatorSubstractionTest extends ArithmeticOperations {
         };
     }
 
-    @Test(dataProvider = "subsCorrectData", groups = "additionalSubstraction")
+    @Test(dataProvider = "subsCorrectData", groups = {"additionalSubstraction"})
     public void addTest(double a, double b, double res) {
         double result = calculator.sub(a, b);
         Assert.assertEquals(result, res, 0.0001);

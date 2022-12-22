@@ -8,12 +8,12 @@ abstract class ArithmeticOperations {
 
     protected Calculator calculator;
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"multiplyDivision", "additionalSubstraction"})
     public void initializeCalculator() {
         calculator = new Calculator();
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"multiplyDivision", "additionalSubstraction"})
     public void clearCalculator() {
         calculator = null;
     }
