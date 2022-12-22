@@ -11,22 +11,25 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <calculator>1.0</calculator>
+        <testng>7.6.1</testng>
+        <maven-checkstyle>3.2.0</maven-checkstyle>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.6.1</version>
+            <version>${testng}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>calculator</groupId>
             <artifactId>calculator</artifactId>
-            <version>1.0</version>
+            <version>${calculator}</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/calculator/calculator-1.0.jar</systemPath>
+            <systemPath>${project.basedir}/calculator/calculator-1.0.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -35,7 +38,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>${maven-checkstyle}</version>
                 <configuration>
                     <configLocation>
                         https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
