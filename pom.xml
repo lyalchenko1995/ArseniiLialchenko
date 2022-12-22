@@ -65,7 +65,7 @@
         <profile>
             <id>all</id>
             <properties>
-                <suite.xml.file>allTests.xml</suite.xml.file>
+                <suite.xml.file>suiteAllTests.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>
@@ -74,13 +74,13 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml.file>addAndSubsTests.xml</suite.xml.file>
+                <suite.xml.file>suiteAddSubsTests.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>
             <id>multAndDiv</id>
             <properties>
-                <suite.xml.file>multAndDivTests.xml</suite.xml.file>
+                <suite.xml.file>suiteMiltDivTests.xml</suite.xml.file>
             </properties>
         </profile>
     </profiles>
