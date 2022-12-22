@@ -4,7 +4,5 @@
 # Log files
 *.log
 
-.idea/compiler.xml
-.idea/misc.xml
-.idea/uiDesigner.xml
-.idea/vcs.xml
+.idea/
+*.iml
