@@ -4,13 +4,109 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>AutomationProject</artifactId>
+    <groupId>com.epam.tc</groupId>
+    <artifactId>Arsenii_Lialchenko</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <calculator>1.0</calculator>
+        <testng>7.6.1</testng>
+        <maven-checkstyle>3.2.0</maven-checkstyle>
+        <maven-compiler-plugin>3.10.1</maven-compiler-plugin>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>calculator</groupId>
+            <artifactId>calculator</artifactId>
+            <version>${calculator}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/calculator/calculator-1.0.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${project.basedir}/src/test/resources/${suite.xml.file}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven-checkstyle}</version>
+                <configuration>
+                    <configLocation>
+                        https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
+                    </configLocation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>all</id>
+            <properties>
+                <suite.xml.file>suiteAllTests.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>addAndSubs</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml.file>suiteAddSubsTests.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>multAndDiv</id>
+            <properties>
+                <suite.xml.file>suiteMiltDivTests.xml</suite.xml.file>
+            </properties>
+        </profile>
+    </profiles>
 </project>
