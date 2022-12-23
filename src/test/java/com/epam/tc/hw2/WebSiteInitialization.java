@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public abstract class InitializeWebSite {
+public abstract class WebSiteInitialization {
 
     protected WebDriver webDriver;
     static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";

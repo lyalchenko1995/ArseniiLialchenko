@@ -1,7 +1,6 @@
 package com.epam.tc.hw2.ex1;
 
-
-import com.epam.tc.hw2.InitializeWebSite;
+import com.epam.tc.hw2.WebSiteInitialization;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-
-
-public class TestsExercise1 extends InitializeWebSite {
+public class TestsExercise1 extends WebSiteInitialization {
 
     SoftAssertions softAssertions = new SoftAssertions();
     static final String HEADER_MENU_PATH = "ul.uui-navigation.nav.navbar-nav.m-l8 > li";
@@ -34,10 +31,10 @@ public class TestsExercise1 extends InitializeWebSite {
     //4 Assert Username is loggined
     @Test(priority = 2)
     public void testLogin() {
-        webDriver.findElement(By.id("user-icon")).click();
-        webDriver.findElement(By.id("name")).sendKeys("Roman");
-        webDriver.findElement(By.id("password")).sendKeys("Jdi1234");
-        webDriver.findElement(By.id("login-button")).click();
+        findElementBySelector(By.id("user-icon")).click();
+        findElementBySelector(By.id("name")).sendKeys("Roman");
+        findElementBySelector(By.id("password")).sendKeys("Jdi1234");
+        findElementBySelector(By.id("login-button")).click();
 
         WebElement user = findElementBySelector(By.id("user-name"));
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(user));

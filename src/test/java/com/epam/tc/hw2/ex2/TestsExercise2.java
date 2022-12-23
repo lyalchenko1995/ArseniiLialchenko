@@ -1,6 +1,6 @@
 package com.epam.tc.hw2.ex2;
 
-import com.epam.tc.hw2.InitializeWebSite;
+import com.epam.tc.hw2.WebSiteInitialization;
 import java.time.Duration;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class TestsExercise2 extends InitializeWebSite {
+public class TestsExercise2 extends WebSiteInitialization {
 
     SoftAssertions softAssertions = new SoftAssertions();
     static final String LOG_PATH = "ul[class='panel-body-list logs'] > li";
