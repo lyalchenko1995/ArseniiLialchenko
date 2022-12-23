@@ -75,7 +75,7 @@ public class TestsExercise2 extends WebSiteInitialization {
     //8 Select in dropdown
     @Test(priority = 6)
     public void testDropDown() {
-        WebElement colors  = findElementBySelector(By.xpath(COLOR_DROPDOWN_PATH));
+        WebElement colors = findElementBySelector(By.xpath(COLOR_DROPDOWN_PATH));
         colors.click();
         WebElement yellow = findElementBySelector(By.xpath(YELLOW_COLOR_PATH));
         yellow.click();

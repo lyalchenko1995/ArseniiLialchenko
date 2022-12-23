@@ -3,6 +3,7 @@ package com.epam.tc.hw2.ex1;
 import com.epam.tc.hw2.WebSiteInitialization;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
@@ -71,18 +72,16 @@ public class TestsExercise1 extends WebSiteInitialization {
         for (WebElement webElement : textElements) {
             actualText.add(webElement.getText());
         }
-        List<String> expectedText = new ArrayList<>();
-        expectedText.add("To include good practices\n"
-                + "and ideas from successful\n"
-                + "EPAM project");
-        expectedText.add("To be flexible and\n"
-                + "customizable");
-        expectedText.add("To be multiplatform");
-        expectedText.add("Already have good base\n"
-                + "(about 20 internal and\n"
-                + "some external projects),\n"
-                + "wish to get more…");
-
+        List<String> expectedText = Arrays.asList("To include good practices\n"
+                        + "and ideas from successful\n"
+                        + "EPAM project",
+                "To be flexible and\n"
+                        + "customizable",
+                "To be multiplatform",
+                "Already have good base\n"
+                        + "(about 20 internal and\n"
+                        + "some external projects),\n"
+                        + "wish to get more…");
         softAssertions.assertThat(actualText.size()).isEqualTo(4);
         softAssertions.assertThat(actualText).isEqualTo(expectedText);
     }
@@ -100,13 +99,8 @@ public class TestsExercise1 extends WebSiteInitialization {
     //11 Assert that there are 5 items in the Left Section are displayed and they have proper text
     @Test(priority = 7)
     public void testSideMenu() {
-        List<String> expectedText = new ArrayList<>();
-        expectedText.add("Home");
-        expectedText.add("Contact form");
-        expectedText.add("Service");
-        expectedText.add("Metals & Colors");
-        expectedText.add("Elements packs");
-
+        List<String> expectedText = Arrays.asList(
+                "Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
         List<WebElement> menuElements = findElementsBySelector(By.cssSelector(SIDE_BAR_MENU));
         List<String> actualText = new ArrayList<>();
         for (WebElement webElement : menuElements) {
