@@ -32,13 +32,13 @@ public class TestsExercise1 extends WebSiteInitialization {
     @Test(priority = 2)
     public void testLogin() {
         findElementBySelector(By.id("user-icon")).click();
-        findElementBySelector(By.id("name")).sendKeys("Roman");
-        findElementBySelector(By.id("password")).sendKeys("Jdi1234");
+        findElementBySelector(By.id("name")).sendKeys(USER_LOGIN);
+        findElementBySelector(By.id("password")).sendKeys(USER_PASSWORD);
         findElementBySelector(By.id("login-button")).click();
 
         WebElement user = findElementBySelector(By.id("user-name"));
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(user));
-        softAssertions.assertThat(user.getText()).isEqualTo("ROMAN IOVLEV");
+        softAssertions.assertThat(user.getText()).isEqualTo(USER_NAME);
     }
 
     //5 Assert that there are 4 items on the header section are displayed and they have proper texts

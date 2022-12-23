@@ -36,13 +36,13 @@ public class TestsExercise2 extends WebSiteInitialization {
     @Test(priority = 2)
     public void testLogin() {
         findElementBySelector(By.id("user-icon")).click();
-        findElementBySelector(By.id("name")).sendKeys("Roman");
-        findElementBySelector(By.id("password")).sendKeys("Jdi1234");
+        findElementBySelector(By.id("name")).sendKeys(USER_LOGIN);
+        findElementBySelector(By.id("password")).sendKeys(USER_PASSWORD);
         findElementBySelector(By.id("login-button")).click();
 
         WebElement user = findElementBySelector(By.id("user-name"));
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(user));
-        softAssertions.assertThat(user.getText()).isEqualTo("ROMAN IOVLEV");
+        softAssertions.assertThat(user.getText()).isEqualTo(USER_NAME);
     }
 
     //5 Open through the header menu Service -> Different Elements Page
@@ -56,9 +56,9 @@ public class TestsExercise2 extends WebSiteInitialization {
     //6 Select checkboxes
     @Test(priority = 4)
     public void testCheckBoxes() {
-        WebElement waterCheckBox = findElementBySelector(new By.ByXPath(WATER_CHECKBOX_PATH));
+        WebElement waterCheckBox = findElementBySelector(By.xpath(WATER_CHECKBOX_PATH));
         waterCheckBox.click();
-        WebElement windCheckBox = findElementBySelector(new By.ByXPath(WIND_CHECKBOX_PATH));
+        WebElement windCheckBox = findElementBySelector(By.xpath(WIND_CHECKBOX_PATH));
         windCheckBox.click();
         softAssertions.assertThat(waterCheckBox.isSelected()).isTrue();
         softAssertions.assertThat(windCheckBox.isSelected()).isTrue();
@@ -67,7 +67,7 @@ public class TestsExercise2 extends WebSiteInitialization {
     //7 Select radio
     @Test(priority = 5)
     public void testRadio() {
-        WebElement radioSelen = findElementBySelector(new By.ByXPath(RADIO_SELEN_PATH));
+        WebElement radioSelen = findElementBySelector(By.xpath(RADIO_SELEN_PATH));
         radioSelen.click();
         softAssertions.assertThat(radioSelen.isSelected()).isTrue();
     }
@@ -75,9 +75,9 @@ public class TestsExercise2 extends WebSiteInitialization {
     //8 Select in dropdown
     @Test(priority = 6)
     public void testDropDown() {
-        WebElement colors  = findElementBySelector(new By.ByXPath(COLOR_DROPDOWN_PATH));
+        WebElement colors  = findElementBySelector(By.xpath(COLOR_DROPDOWN_PATH));
         colors.click();
-        WebElement yellow = findElementBySelector(new By.ByXPath(YELLOW_COLOR_PATH));
+        WebElement yellow = findElementBySelector(By.xpath(YELLOW_COLOR_PATH));
         yellow.click();
         softAssertions.assertThat(yellow.getText()).isEqualTo("Yellow");
     }
@@ -90,10 +90,10 @@ public class TestsExercise2 extends WebSiteInitialization {
     public void testLogger() {
         List<WebElement> headerElements = findElementsBySelector(By.cssSelector(LOG_PATH));
         softAssertions.assertThat(headerElements.size()).isEqualTo(4);
-        softAssertions.assertThat(findElementBySelector(new By.ByXPath(WATER_LOG_PATH)).isDisplayed());
-        softAssertions.assertThat(findElementBySelector(new By.ByXPath(WIND_LOG_PATH)).isDisplayed());
-        softAssertions.assertThat(findElementBySelector(new By.ByXPath(METAL_LOG_PATH)).isDisplayed());
-        softAssertions.assertThat(findElementBySelector(new By.ByXPath(COLORS_LOG_PATH)).isDisplayed());
+        softAssertions.assertThat(findElementBySelector(By.xpath(WATER_LOG_PATH)).isDisplayed());
+        softAssertions.assertThat(findElementBySelector(By.xpath(WIND_LOG_PATH)).isDisplayed());
+        softAssertions.assertThat(findElementBySelector(By.xpath(METAL_LOG_PATH)).isDisplayed());
+        softAssertions.assertThat(findElementBySelector(By.xpath(COLORS_LOG_PATH)).isDisplayed());
         softAssertions.assertAll();
     }
 }

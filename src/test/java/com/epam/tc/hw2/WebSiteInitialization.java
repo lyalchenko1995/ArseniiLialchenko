@@ -14,6 +14,10 @@ public abstract class WebSiteInitialization {
     protected WebDriver webDriver;
     static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
 
+    protected static final String USER_LOGIN = "Roman";
+    protected static final String USER_PASSWORD = "Jdi1234";
+    protected static final String USER_NAME = "ROMAN IOVLEV";
+
     @BeforeClass
     public void runWebDriver() {
         WebDriverManager.chromedriver().setup();
