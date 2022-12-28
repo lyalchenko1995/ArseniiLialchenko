@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeaderMenuComponent {
 
-    @FindBy(partialLinkText = "ul.uui-navigation.nav.navbar-nav.m-l8 > li")
+    @FindBy(css = "ul.uui-navigation.nav.navbar-nav.m-l8 > li")
     private List<WebElement> navigationBarHeaderElements;
 
     @FindBy(partialLinkText = "HOME")

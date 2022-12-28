@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-
 public class BaseTest {
 
     public static WebDriver webDriver;
@@ -16,7 +15,7 @@ public class BaseTest {
 
     @BeforeClass
     public static void preparetoTest() {
-        webDriver = new DriverManager().setupDriver();
+        webDriver = new DriverManager().setupDriver(URL);
     }
 
     @AfterClass

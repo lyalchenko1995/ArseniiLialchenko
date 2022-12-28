@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LogComponent {
 
-    @FindBy(xpath = "ul[class='panel-body-list logs'] > li")
+    @FindBy(css = "ul[class='panel-body-list logs'] > li")
     private List<WebElement> logs;
 
     @FindBy(xpath = "//*[contains(text(),'Water: condition changed to true')]")

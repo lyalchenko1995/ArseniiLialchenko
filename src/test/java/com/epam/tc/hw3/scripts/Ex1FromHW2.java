@@ -13,8 +13,8 @@ import org.testng.annotations.Test;
 
 public class Ex1FromHW2 extends BaseTest {
 
-    LoginPage loginPage = new LoginPage(webDriver);
-    HomePage homePage = new HomePage(webDriver);
+    LoginPage loginPage;
+    HomePage homePage;
     SoftAssertions softAssertions = new SoftAssertions();
 
     //2 Assert Browser title
@@ -27,13 +27,15 @@ public class Ex1FromHW2 extends BaseTest {
     //4 Assert Username is loggined
     @Test(priority = 2)
     public void testLogin() {
-        loginPage.login(USER_LOGIN, USER_PASSWORD, USER_NAME, webDriver);
+        loginPage = new LoginPage(webDriver);
+        loginPage.login(USER_LOGIN, USER_PASSWORD, webDriver);
         softAssertions.assertThat(loginPage.getUserName().getText()).isEqualTo(USER_NAME);
     }
 
     //5 Assert that there are 4 items on the header section are displayed and they have proper texts
     @Test(priority = 3)
     public void testHeaders() {
+        homePage = new HomePage(webDriver);
         softAssertions.assertThat(homePage.getHeaderMenuComponent().getNavigationBarHeaderElement()
                 .size()).isEqualTo(4);
         softAssertions.assertThat(homePage.getHeaderMenuComponent().getHomeHeaderElement().isDisplayed());
@@ -45,6 +47,7 @@ public class Ex1FromHW2 extends BaseTest {
     //6 Assert that there are 4 images on the Index Page and they are displayed
     @Test(priority = 4)
     public void testImages() {
+        homePage = new HomePage(webDriver);
         softAssertions.assertThat(homePage.getListOfImages().size()).isEqualTo(4);
         softAssertions.assertThat(homePage.getIconPractise().isDisplayed());
         softAssertions.assertThat(homePage.getIconCustom().isDisplayed());
@@ -55,6 +58,7 @@ public class Ex1FromHW2 extends BaseTest {
     //7 Assert that there are 4 texts on the Index Page under icons and they have proper text
     @Test(priority = 5)
     public void testTextForImages() {
+        homePage = new HomePage(webDriver);
         List<String> actualText = new ArrayList<>();
         for (WebElement webElement : homePage.getListOfTests()) {
             actualText.add(webElement.getText());
@@ -80,6 +84,7 @@ public class Ex1FromHW2 extends BaseTest {
     //10 Switch to original window back
     @Test(priority = 6)
     public void testIframe() {
+        homePage = new HomePage(webDriver);
         webDriver.switchTo().frame("frame");
         softAssertions.assertThat(homePage.getFrameButton().isDisplayed());
         webDriver.switchTo().defaultContent();
@@ -88,6 +93,7 @@ public class Ex1FromHW2 extends BaseTest {
     //11 Assert that there are 5 items in the Left Section are displayed and they have proper text
     @Test(priority = 7)
     public void testSideMenu() {
+        homePage = new HomePage(webDriver);
         List<String> actualText = new ArrayList<>();
         for (WebElement webElement : homePage.getSideMenuComponent().getSideMenuItems()) {
             actualText.add(webElement.getText());

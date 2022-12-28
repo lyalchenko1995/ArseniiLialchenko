@@ -1,7 +1,6 @@
 package com.epam.tc.hw3.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -11,10 +10,11 @@ public class DriverManager {
         WebDriverManager.chromedriver().setup();
     }
 
-    public WebDriver setupDriver() {
+    public WebDriver setupDriver(String url) {
         setupChromeDriver();
         WebDriver webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().window().maximize();
+        webDriver.get(url);
         return webDriver;
     }
 }

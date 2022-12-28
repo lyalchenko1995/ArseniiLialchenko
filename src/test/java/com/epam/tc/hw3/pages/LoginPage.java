@@ -50,10 +50,11 @@ public class LoginPage {
     }
 
 
-    public void login(String name, String password, String userName, WebDriver webDriver) {
+    public void login(String name, String password, WebDriver webDriver) {
         getUserIcon().click();
-        getNameField().sendKeys();
-        loginButton.click();
+        getNameField().sendKeys(name);
+        getPasswordField().sendKeys(password);
+        getLoginButton().click();
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(getUserName()));
     }
 

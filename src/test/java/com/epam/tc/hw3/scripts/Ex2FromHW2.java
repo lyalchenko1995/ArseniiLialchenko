@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 public class Ex2FromHW2 extends BaseTest {
 
-    LoginPage loginPage = new LoginPage(webDriver);
-    HomePage homePage = new HomePage(webDriver);
-    DifferentElementsPage differentElementsPage = new DifferentElementsPage(webDriver);
+    LoginPage loginPage;
+    HomePage homePage;
+    DifferentElementsPage differentElementsPage;
 
     SoftAssertions softAssertions = new SoftAssertions();
 
@@ -25,13 +25,15 @@ public class Ex2FromHW2 extends BaseTest {
     //4 Assert User name in the left-top side of screen that user is loggined
     @Test(priority = 2)
     public void testLogin() {
-        loginPage.login(USER_LOGIN, USER_PASSWORD, USER_NAME, webDriver);
+        loginPage = new LoginPage(webDriver);
+        loginPage.login(USER_LOGIN, USER_PASSWORD, webDriver);
         softAssertions.assertThat(loginPage.getUserName().getText()).isEqualTo(USER_NAME);
     }
 
     //5 Open through the header menu Service -> Different Elements Page
     @Test(priority = 3)
     public void goToDifferentElementsPage() {
+        homePage = new HomePage(webDriver);
         homePage.getHeaderMenuComponent().getServiceHeaderElement().click();
         homePage.getDifferentElements().click();
         softAssertions.assertThat(webDriver.getTitle()).isEqualTo("Different Elements");
@@ -40,6 +42,7 @@ public class Ex2FromHW2 extends BaseTest {
     //6 Select checkboxes
     @Test(priority = 4)
     public void testCheckBoxes() {
+        differentElementsPage = new DifferentElementsPage(webDriver);
         differentElementsPage.getWaterCheckBox().click();
         differentElementsPage.getWindCheckBox().click();
         softAssertions.assertThat(differentElementsPage.getWaterCheckBox().isSelected()).isTrue();
@@ -49,6 +52,7 @@ public class Ex2FromHW2 extends BaseTest {
     //7 Select radio
     @Test(priority = 5)
     public void testRadio() {
+        differentElementsPage = new DifferentElementsPage(webDriver);
         differentElementsPage.getRadioSelen().click();
         softAssertions.assertThat(differentElementsPage.getRadioSelen().isSelected()).isTrue();
     }
@@ -56,6 +60,7 @@ public class Ex2FromHW2 extends BaseTest {
     //8 Select in dropdown
     @Test(priority = 6)
     public void testDropDown() {
+        differentElementsPage = new DifferentElementsPage(webDriver);
         differentElementsPage.getColorsDropDownComponent().clickOnDropDownColor();
         differentElementsPage.getColorsDropDownComponent().getYellowColor().click();
         softAssertions.assertThat(differentElementsPage.getColorsDropDownComponent().getYellowColor()
@@ -68,6 +73,7 @@ public class Ex2FromHW2 extends BaseTest {
     //9.3 Assert that for dropdown there is a log row and value is corresponded to the selected value.
     @Test(priority = 7)
     public void testLogger() {
+        differentElementsPage = new DifferentElementsPage(webDriver);
         softAssertions.assertThat(differentElementsPage.getLogComponent().getLogs().size()).isEqualTo(4);
         softAssertions.assertThat(differentElementsPage.getLogComponent().getWaterLog().isDisplayed());
         softAssertions.assertThat(differentElementsPage.getLogComponent().getWindLog().isDisplayed());
