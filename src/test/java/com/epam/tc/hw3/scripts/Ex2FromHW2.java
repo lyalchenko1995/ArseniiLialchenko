@@ -25,9 +25,9 @@ public class Ex2FromHW2 extends BaseTest {
     //4 Assert User name in the left-top side of screen that user is loggined
     @Test(priority = 2)
     public void testLogin() {
-        loginPage = new LoginPage(webDriver);
-        loginPage.login(USER_LOGIN, USER_PASSWORD, webDriver);
-        softAssertions.assertThat(loginPage.getUserName().getText()).isEqualTo(USER_NAME);
+        loginPage.initLoginPage(webDriver)
+                .clickUserIcon().setUserName(USER_LOGIN).setUserPassword(USER_PASSWORD).clickLoginButton();
+        softAssertions.assertThat(loginPage.initLoginPage(webDriver).getUserName().getText()).isEqualTo(USER_NAME);
     }
 
     //5 Open through the header menu Service -> Different Elements Page

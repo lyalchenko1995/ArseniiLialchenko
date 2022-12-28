@@ -27,9 +27,9 @@ public class Ex1FromHW2 extends BaseTest {
     //4 Assert Username is loggined
     @Test(priority = 2)
     public void testLogin() {
-        loginPage = new LoginPage(webDriver);
-        loginPage.login(USER_LOGIN, USER_PASSWORD, webDriver);
-        softAssertions.assertThat(loginPage.getUserName().getText()).isEqualTo(USER_NAME);
+        loginPage.initLoginPage(webDriver)
+                .clickUserIcon().setUserName(USER_LOGIN).setUserPassword(USER_PASSWORD).clickLoginButton();
+        softAssertions.assertThat(loginPage.initLoginPage(webDriver).getUserName().getText()).isEqualTo(USER_NAME);
     }
 
     //5 Assert that there are 4 items on the header section are displayed and they have proper texts
@@ -49,10 +49,9 @@ public class Ex1FromHW2 extends BaseTest {
     public void testImages() {
         homePage = new HomePage(webDriver);
         softAssertions.assertThat(homePage.getListOfImages().size()).isEqualTo(4);
-        softAssertions.assertThat(homePage.getIconPractise().isDisplayed());
-        softAssertions.assertThat(homePage.getIconCustom().isDisplayed());
-        softAssertions.assertThat(homePage.getIconMulti().isDisplayed());
-        softAssertions.assertThat(homePage.getIconBase().isDisplayed());
+        for (WebElement webElement : homePage.getListOfImages()) {
+            webElement.isDisplayed();
+        }
     }
 
     //7 Assert that there are 4 texts on the Index Page under icons and they have proper text

@@ -58,4 +58,27 @@ public class LoginPage {
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(getUserName()));
     }
 
+    public static LoginPage initLoginPage(WebDriver webDriver) {
+        return new LoginPage(webDriver);
+    }
+
+    public LoginPage clickUserIcon() {
+        this.getUserIcon().click();
+        return this;
+    }
+
+    public LoginPage setUserName(String name) {
+        this.getNameField().sendKeys(name);
+        return this;
+    }
+
+    public LoginPage setUserPassword(String password) {
+        this.getPasswordField().sendKeys(password);
+        return this;
+    }
+
+    public LoginPage clickLoginButton() {
+        this.getLoginButton().click();
+        return this;
+    }
 }
