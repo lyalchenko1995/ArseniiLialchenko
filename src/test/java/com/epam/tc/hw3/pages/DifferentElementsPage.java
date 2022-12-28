@@ -1,9 +1,11 @@
 package com.epam.tc.hw3.pages;
 
-import com.epam.tc.hw3.pages.pageComponents.ColorsDropDownComponent;
-import com.epam.tc.hw3.pages.pageComponents.LogComponent;
+import com.epam.tc.hw3.pages.components.ColorsDropDownComponent;
+import com.epam.tc.hw3.pages.components.LogComponent;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class DifferentElementsPage {
 
@@ -19,6 +21,14 @@ public class DifferentElementsPage {
 
     @FindBy(xpath = "//label[@class='label-radio'][4]/*")
     private WebElement radioSelen;
+
+    public DifferentElementsPage(WebDriver webDriver) {
+        PageFactory.initElements(webDriver, this);
+        colorsDropDownComponent = new ColorsDropDownComponent();
+        logComponent = new LogComponent();
+        PageFactory.initElements(webDriver, colorsDropDownComponent);
+        PageFactory.initElements(webDriver, logComponent);
+    }
 
     public ColorsDropDownComponent getColorsDropDownComponent() {
         return colorsDropDownComponent;

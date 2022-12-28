@@ -1,6 +1,6 @@
 package com.epam.tc.hw3;
 
-import com.epam.tc.hw3.driverUtils.DriverManager;
+import com.epam.tc.hw3.utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -8,7 +8,11 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 
-    static WebDriver webDriver;
+    public static WebDriver webDriver;
+    protected static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    protected static final String USER_LOGIN = "Roman";
+    protected static final String USER_PASSWORD = "Jdi1234";
+    protected static final String USER_NAME = "ROMAN IOVLEV";
 
     @BeforeClass
     public static void preparetoTest() {

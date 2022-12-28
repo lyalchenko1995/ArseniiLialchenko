@@ -1,0 +1,8 @@
+<suite name="suiteHW2" verbose="1" >
+    <test name="Test" >
+        <classes>
+            <class name="com.epam.tc.hw3.scripts.Ex1FromHW2"/>
+            <class name="com.epam.tc.hw3.scripts.Ex2FromHW2"/>
+        </classes>
+    </test>
+</suite>

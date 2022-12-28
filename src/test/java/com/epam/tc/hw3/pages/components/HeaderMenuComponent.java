@@ -1,12 +1,13 @@
-package com.epam.tc.hw3.pages.pageComponents;
+package com.epam.tc.hw3.pages.components;
 
+import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HeaderMenuComponent {
 
     @FindBy(partialLinkText = "ul.uui-navigation.nav.navbar-nav.m-l8 > li")
-    private WebElement navigationBarHeaderElement;
+    private List<WebElement> navigationBarHeaderElements;
 
     @FindBy(partialLinkText = "HOME")
     private WebElement homeHeaderElement;
@@ -20,8 +21,8 @@ public class HeaderMenuComponent {
     @FindBy(partialLinkText = "METALS & COLORS")
     private WebElement metalColorsHeaderElement;
 
-    public WebElement getNavigationBarHeaderElement() {
-        return navigationBarHeaderElement;
+    public List<WebElement> getNavigationBarHeaderElement() {
+        return navigationBarHeaderElements;
     }
 
     public WebElement getHomeHeaderElement() {

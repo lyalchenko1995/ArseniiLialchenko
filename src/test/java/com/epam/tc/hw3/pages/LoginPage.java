@@ -1,9 +1,12 @@
 package com.epam.tc.hw3.pages;
 
+import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
@@ -46,5 +49,12 @@ public class LoginPage {
         return userName;
     }
 
+
+    public void login(String name, String password, String userName, WebDriver webDriver) {
+        getUserIcon().click();
+        getNameField().sendKeys();
+        loginButton.click();
+        new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(getUserName()));
+    }
 
 }

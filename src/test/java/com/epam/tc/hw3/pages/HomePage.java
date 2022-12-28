@@ -1,13 +1,13 @@
 package com.epam.tc.hw3.pages;
 
-import com.epam.tc.hw3.pages.pageComponents.HeaderMenuComponent;
-import com.epam.tc.hw3.pages.pageComponents.SideMenuComponent;
+import com.epam.tc.hw3.pages.components.HeaderMenuComponent;
+import com.epam.tc.hw3.pages.components.SideMenuComponent;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
 
 public class HomePage {
 
