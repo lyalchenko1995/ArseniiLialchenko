@@ -139,5 +139,11 @@
                 <suite.xml.file>suiteHW2.xml</suite.xml.file>
             </properties>
         </profile>
+        <profile>
+            <id>HW3</id>
+            <properties>
+                <suite.xml.file>suiteHW3.xml</suite.xml.file>
+            </properties>
+        </profile>
     </profiles>
 </project>
