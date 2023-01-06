@@ -5,6 +5,7 @@ import com.epam.tc.hw3.pages.DifferentElementsPage;
 import com.epam.tc.hw3.pages.HomePage;
 import com.epam.tc.hw3.pages.LoginPage;
 import org.assertj.core.api.SoftAssertions;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class Ex2FromHW2 extends BaseTest {
@@ -75,10 +76,14 @@ public class Ex2FromHW2 extends BaseTest {
     public void testLogger() {
         differentElementsPage = new DifferentElementsPage(webDriver);
         softAssertions.assertThat(differentElementsPage.getLogComponent().getLogs().size()).isEqualTo(4);
-        softAssertions.assertThat(differentElementsPage.getLogComponent().getWaterLog().isDisplayed());
-        softAssertions.assertThat(differentElementsPage.getLogComponent().getWindLog().isDisplayed());
-        softAssertions.assertThat(differentElementsPage.getLogComponent().getMetalLog().isDisplayed());
-        softAssertions.assertThat(differentElementsPage.getLogComponent().getColorsLog().isDisplayed());
+        softAssertions.assertThat(differentElementsPage.getLogComponent()
+                .isNatureElementDisplayed("Water", "true")).isTrue();
+        softAssertions.assertThat(differentElementsPage.getLogComponent()
+                .isNatureElementDisplayed("Wind", "true")).isTrue();
+        softAssertions.assertThat(differentElementsPage.getLogComponent()
+                .isMetalOrColorDisplayed("metal", "Selen")).isTrue();
+        softAssertions.assertThat(differentElementsPage.getLogComponent()
+                .isMetalOrColorDisplayed("Colors", "Yellow")).isTrue();
         softAssertions.assertAll();
     }
 }

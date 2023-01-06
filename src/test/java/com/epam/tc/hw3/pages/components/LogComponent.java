@@ -9,35 +9,27 @@ public class LogComponent {
     @FindBy(css = "ul[class='panel-body-list logs'] > li")
     private List<WebElement> logs;
 
-    @FindBy(xpath = "//*[contains(text(),'Water: condition changed to true')]")
-    private WebElement waterLog;
-
-    @FindBy(xpath = "//*[contains(text(),'Wind: condition changed to true')]")
-    private WebElement windLog;
-
-    @FindBy(xpath = "//*[contains(text(),'metal: value changed to  Selen')]")
-    private WebElement metalLog;
-
-    @FindBy(xpath = "//*[contains(text(),'Colors: value changed to Yellow')]")
-    private WebElement colorsLog;
-
     public List<WebElement> getLogs() {
         return logs;
     }
 
-    public WebElement getWaterLog() {
-        return waterLog;
+    public boolean isNatureElementDisplayed(String elem, String status) {
+        boolean isDisplayed = false;
+        for (WebElement log : logs) {
+            if (log.getText().contains(elem + ": condition changed to " + status)) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
     }
 
-    public WebElement getWindLog() {
-        return windLog;
-    }
-
-    public WebElement getMetalLog() {
-        return metalLog;
-    }
-
-    public WebElement getColorsLog() {
-        return colorsLog;
+    public boolean isMetalOrColorDisplayed(String elem, String status) {
+        boolean isDisplayed = false;
+        for (WebElement log : logs) {
+            if (log.getText().contains(elem + ": value changed to " + status)) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
     }
 }

@@ -13,13 +13,13 @@ public class DifferentElementsPage {
 
     private LogComponent logComponent;
 
-    @FindBy(xpath = "//label[@class='label-checkbox'][1]/*")
+    @FindBy(xpath = "//label[text()[contains(.,' Water')]]/input")
     private WebElement waterCheckBox;
 
-    @FindBy(xpath = "//label[@class='label-checkbox'][3]/*")
+    @FindBy(xpath = "//label[text()[contains(.,' Wind')]]/input")
     private WebElement windCheckBox;
 
-    @FindBy(xpath = "//label[@class='label-radio'][4]/*")
+    @FindBy(xpath = "//label[text()[contains(.,' Selen')]]/input")
     private WebElement radioSelen;
 
     public DifferentElementsPage(WebDriver webDriver) {
