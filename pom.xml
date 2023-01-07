@@ -20,6 +20,9 @@
         <webdrivermanager>5.3.1</webdrivermanager>
         <selenium-java>4.6.0</selenium-java>
         <assertj-core>3.23.1</assertj-core>
+        <allure-testng>2.20.1</allure-testng>
+        <allure-maven>2.12.0</allure-maven>
+        <aspectj.version>1.9.19</aspectj.version>
     </properties>
 
     <dependencies>
@@ -56,7 +59,12 @@
             <version>${assertj-core}</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -81,13 +89,29 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${project.basedir}/src/test/resources/${suite.xml.file}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                 </configuration>
-            </plugin>
+                <dependencies>
+                    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                        <scope>runtime</scope>
+                    </dependency>
 
+                </dependencies>
+            </plugin>
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven-checkstyle}</version>
+                <version>3.2.0</version>
                 <configuration>
                     <configLocation>
                         https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
@@ -119,9 +143,6 @@
         </profile>
         <profile>
             <id>addAndSubs</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <suite.xml.file>suiteAddSubsTests.xml</suite.xml.file>
             </properties>
@@ -143,6 +164,15 @@
             <id>HW3</id>
             <properties>
                 <suite.xml.file>suiteHW3.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW4</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml.file>suiteHW4.xml</suite.xml.file>
             </properties>
         </profile>
     </profiles>
