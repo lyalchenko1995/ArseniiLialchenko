@@ -1,9 +1,9 @@
 package com.epam.tc.hw4.utils;
 
+import static com.epam.tc.hw4.BaseTestHW4.webDriver;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-
-import static com.epam.tc.hw4.BaseTestHW4.webDriver;
 
 public class ActionStep extends PageObjectInitialization {
 

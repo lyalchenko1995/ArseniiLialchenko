@@ -6,12 +6,12 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-@Feature("Feature2")
-@Story("Story2")
-public class Ex2 extends BaseTestHW4 {
+@Feature("Different elements page feature")
+@Story("Different elements page story")
+public class TestDifferentElementsPage extends BaseTestHW4 {
 
     @Test
-    @Description("Test dirrefent elements page")
+    @Description("Test different elements page")
     public void testDifferentElementsPage() {
         assertStep.assertTitle("Home Page");
         actionStep.login(USER_LOGIN, USER_PASSWORD);

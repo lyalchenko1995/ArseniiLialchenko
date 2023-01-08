@@ -1,20 +1,20 @@
 package com.epam.tc.hw4.utils;
 
-import io.qameta.allure.Step;
-import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static com.epam.tc.hw3.BaseTest.webDriver;
 
+import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static com.epam.tc.hw3.BaseTest.webDriver;
+import org.assertj.core.api.SoftAssertions;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AssertStep extends PageObjectInitialization {
     public AssertStep(WebDriver webDriver) {
         super(webDriver);
     }
+
     SoftAssertions softAssertions = new SoftAssertions();
 
     @Step("Assert page title")
@@ -94,8 +94,7 @@ public class AssertStep extends PageObjectInitialization {
         WebElement checkBoxElement = differentElementsPage.findElement(checkBoxName);
         if (bool = true) {
             softAssertions.assertThat(checkBoxElement.isSelected()).isTrue();
-        } else
-        {
+        } else {
             softAssertions.assertThat(checkBoxElement.isSelected()).isFalse();
         }
         softAssertions.assertAll();

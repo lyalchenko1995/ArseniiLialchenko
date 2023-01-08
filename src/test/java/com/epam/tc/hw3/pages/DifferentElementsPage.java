@@ -1,5 +1,7 @@
 package com.epam.tc.hw3.pages;
 
+import static com.epam.tc.hw4.BaseTestHW4.webDriver;
+
 import com.epam.tc.hw3.pages.components.ColorsDropDownComponent;
 import com.epam.tc.hw3.pages.components.LogComponent;
 import org.openqa.selenium.By;
@@ -8,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.epam.tc.hw4.BaseTestHW4.webDriver;
 
 public class DifferentElementsPage {
 
@@ -54,8 +55,8 @@ public class DifferentElementsPage {
     }
 
     public WebElement findElement(String checkBoxName) {
-        String xPath = String.format("//label[text()[contains(.,' %s')]]/input", checkBoxName);
-        WebElement checkBoxElement = webDriver.findElement(By.xpath(xPath));
+        String xpath = String.format("//label[text()[contains(.,' %s')]]/input", checkBoxName);
+        WebElement checkBoxElement = webDriver.findElement(By.xpath(xpath));
         return checkBoxElement;
     }
 

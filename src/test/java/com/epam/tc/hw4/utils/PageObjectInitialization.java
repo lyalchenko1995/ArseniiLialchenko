@@ -11,8 +11,8 @@ public class PageObjectInitialization {
     protected LoginPage loginPage;
 
     protected PageObjectInitialization(WebDriver webDriver) {
-    differentElementsPage = new DifferentElementsPage(webDriver);
-    homePage = new HomePage(webDriver);
-    loginPage = new LoginPage(webDriver);
+        differentElementsPage = new DifferentElementsPage(webDriver);
+        homePage = new HomePage(webDriver);
+        loginPage = new LoginPage(webDriver);
     }
 }
