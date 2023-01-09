@@ -57,7 +57,7 @@ public class LoginPage {
         getNameField().sendKeys(name);
         getPasswordField().sendKeys(password);
         getLoginButton().click();
-        new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(getUserName()));
+        //new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(getUserName()));
     }
 
     public static LoginPage initLoginPage(WebDriver webDriver) {

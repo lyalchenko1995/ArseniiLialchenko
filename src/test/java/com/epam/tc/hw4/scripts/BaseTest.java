@@ -4,6 +4,7 @@ import com.epam.tc.hw3.utils.DriverManager;
 import com.epam.tc.hw4.utils.ActionStep;
 import com.epam.tc.hw4.utils.AssertStep;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -18,8 +19,9 @@ public class BaseTest {
     protected static final String USER_NAME = "ROMAN IOVLEV";
 
     @BeforeClass
-    public void preparetoTest() {
+    public void preparetoTest(ITestContext testContext) {
         webDriver = new DriverManager().setupDriver(URL);
+        testContext.setAttribute("driver", webDriver);
         actionStep = new ActionStep(webDriver);
         assertStep = new AssertStep(webDriver);
     }

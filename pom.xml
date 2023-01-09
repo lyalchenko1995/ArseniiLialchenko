@@ -28,18 +28,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>calculator</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator}</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/calculator/calculator-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
