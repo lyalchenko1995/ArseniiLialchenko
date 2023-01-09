@@ -1,6 +1,6 @@
 package com.epam.tc.hw4.utils;
 
-import static com.epam.tc.hw3.BaseTest.webDriver;
+import static com.epam.tc.hw4.scripts.BaseTest.webDriver;
 
 import io.qameta.allure.Step;
 import java.util.ArrayList;

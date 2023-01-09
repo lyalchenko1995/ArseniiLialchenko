@@ -1,8 +1,9 @@
 package com.epam.tc.hw3.scripts;
 
-import com.epam.tc.hw3.BaseTest;
+
 import com.epam.tc.hw3.pages.HomePage;
 import com.epam.tc.hw3.pages.LoginPage;
+import com.epam.tc.hw4.scripts.BaseTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

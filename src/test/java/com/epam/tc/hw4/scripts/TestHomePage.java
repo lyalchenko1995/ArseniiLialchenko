@@ -1,6 +1,5 @@
 package com.epam.tc.hw4.scripts;
 
-import com.epam.tc.hw4.BaseTestHW4;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -8,7 +7,7 @@ import org.testng.annotations.Test;
 
 @Feature("Home page feature")
 @Story("Home page story")
-public class TestHomePage extends BaseTestHW4 {
+public class TestHomePage extends BaseTest {
 
     @Test
     @Description("Test home page")
@@ -24,5 +23,4 @@ public class TestHomePage extends BaseTestHW4 {
         actionStep.switchToOriginalWindow();
         assertStep.assertLeftSection();
     }
-
 }

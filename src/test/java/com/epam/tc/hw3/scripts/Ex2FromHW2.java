@@ -1,11 +1,10 @@
 package com.epam.tc.hw3.scripts;
 
-import com.epam.tc.hw3.BaseTest;
 import com.epam.tc.hw3.pages.DifferentElementsPage;
 import com.epam.tc.hw3.pages.HomePage;
 import com.epam.tc.hw3.pages.LoginPage;
+import com.epam.tc.hw4.scripts.BaseTest;
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class Ex2FromHW2 extends BaseTest {

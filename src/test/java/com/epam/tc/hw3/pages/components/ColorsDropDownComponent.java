@@ -1,6 +1,6 @@
 package com.epam.tc.hw3.pages.components;
 
-import static com.epam.tc.hw4.BaseTestHW4.webDriver;
+import static com.epam.tc.hw4.scripts.BaseTest.webDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
