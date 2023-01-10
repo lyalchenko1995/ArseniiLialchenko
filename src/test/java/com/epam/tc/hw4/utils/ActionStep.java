@@ -43,5 +43,4 @@ public class ActionStep extends PageObjectInitialization {
         differentElementsPage.getColorsDropDownComponent().clickOnDropDownColor();
         differentElementsPage.getColorsDropDownComponent().findColor("Yellow").click();
     }
-
 }

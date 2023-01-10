@@ -23,13 +23,13 @@ public class AssertStep extends PageObjectInitialization {
         softAssertions.assertAll();
     }
 
-    @Step("Asser login")
+    @Step("Assert login")
     public void assertLogin(String userName) {
         softAssertions.assertThat(loginPage.initLoginPage(webDriver).getUserName().getText()).isEqualTo(userName);
         softAssertions.assertAll();
     }
 
-    @Step("Asser headers")
+    @Step("Assert headers")
     public void assertHeaders() {
         softAssertions.assertThat(homePage.getHeaderMenuComponent().getNavigationBarHeaderElement()
                 .size()).isEqualTo(4);
