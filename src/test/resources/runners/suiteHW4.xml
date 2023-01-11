@@ -6,9 +6,9 @@
     </listeners>
     <test name="Test" >
         <classes>
-            <class name="com.epam.tc.hw4.scripts.TestHomePage"/>
-            <class name="com.epam.tc.hw4.scripts.TestDifferentElementsPage"/>
-            <class name="com.epam.tc.hw4.scripts.FailedTest"/>
+            <class name="com.epam.tc.hw4.tests.TestHomePage"/>
+            <class name="com.epam.tc.hw4.tests.TestDifferentElementsPage"/>
+            <class name="com.epam.tc.hw4.tests.FailedTest"/>
         </classes>
     </test>
 </suite>

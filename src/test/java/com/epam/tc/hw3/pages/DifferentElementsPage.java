@@ -1,6 +1,6 @@
 package com.epam.tc.hw3.pages;
 
-import static com.epam.tc.hw4.scripts.BaseTest.webDriver;
+import static com.epam.tc.hw4.tests.BaseTest.webDriver;
 
 import com.epam.tc.hw3.pages.components.ColorsDropDownComponent;
 import com.epam.tc.hw3.pages.components.LogComponent;

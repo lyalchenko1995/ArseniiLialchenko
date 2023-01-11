@@ -1,4 +1,4 @@
-package com.epam.tc.hw4.scripts;
+package com.epam.tc.hw4.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -7,11 +7,12 @@ import org.testng.annotations.Test;
 
 @Feature("Home page feature")
 @Story("Home page story")
-public class FailedTest extends BaseTest {
+public class TestHomePage extends BaseTest {
+
     @Test
-    @Description("Failed test")
+    @Description("Test home page")
     public void testHomePage() {
-        assertStep.assertTitle("Home Page1");
+        assertStep.assertTitle("Home Page");
         actionStep.login(USER_LOGIN, USER_PASSWORD);
         assertStep.assertLogin(USER_NAME);
         assertStep.assertHeaders();

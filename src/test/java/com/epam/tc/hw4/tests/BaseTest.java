@@ -1,4 +1,4 @@
-package com.epam.tc.hw4.scripts;
+package com.epam.tc.hw4.tests;
 
 import com.epam.tc.hw3.utils.DriverManager;
 import com.epam.tc.hw4.utils.ActionStep;
