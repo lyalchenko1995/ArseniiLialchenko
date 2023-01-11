@@ -38,7 +38,7 @@ public class TestsExercise1 extends WebSiteInitialization {
         findElementBySelector(By.id("login-button")).click();
 
         WebElement user = findElementBySelector(By.id("user-name"));
-        //new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(user));
+        new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(user));
         softAssertions.assertThat(user.getText()).isEqualTo(USER_NAME);
     }
 
