@@ -49,7 +49,6 @@ public class LoginPage {
         return userName;
     }
 
-
     public void login(String name, String password, WebDriver webDriver) {
         getUserIcon().click();
         getNameField().sendKeys(name);
@@ -58,7 +57,7 @@ public class LoginPage {
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(getUserName()));
     }
 
-    public static LoginPage initLoginPage(WebDriver webDriver) {
+    public LoginPage initLoginPage(WebDriver webDriver) {
         return new LoginPage(webDriver);
     }
 
