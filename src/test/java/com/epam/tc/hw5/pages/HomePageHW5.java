@@ -1,19 +1,18 @@
-package com.epam.tc.hw3.pages;
+package com.epam.tc.hw5.pages;
 
-import com.epam.tc.hw3.pages.components.HeaderMenuComponent;
-import com.epam.tc.hw3.pages.components.SideMenuComponent;
+import com.epam.tc.hw5.pages.components.HeaderMenuComponentHW5;
+import com.epam.tc.hw5.pages.components.SideMenuComponentHW5;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+public class HomePageHW5 extends MainPageHW5 {
 
-public class HomePage {
+    private HeaderMenuComponentHW5 headerMenuComponent;
 
-    private HeaderMenuComponent headerMenuComponent;
-
-    private SideMenuComponent sideMenuComponent;
+    private SideMenuComponentHW5 sideMenuComponent;
 
     @FindBy(css = "[class='icons-benefit icon-practise']")
     private WebElement iconPractise;
@@ -40,19 +39,20 @@ public class HomePage {
     @FindBy(partialLinkText = "DIFFERENT ELEMENTS")
     private WebElement differentElements;
 
-    public HomePage(WebDriver webDriver) {
+    public HomePageHW5(WebDriver webDriver) {
+        super(webDriver);
         PageFactory.initElements(webDriver, this);
-        headerMenuComponent = new HeaderMenuComponent();
-        sideMenuComponent = new SideMenuComponent();
+        headerMenuComponent = new HeaderMenuComponentHW5();
+        sideMenuComponent = new SideMenuComponentHW5();
         PageFactory.initElements(webDriver, headerMenuComponent);
         PageFactory.initElements(webDriver, sideMenuComponent);
     }
 
-    public HeaderMenuComponent getHeaderMenuComponent() {
+    public HeaderMenuComponentHW5 getHeaderMenuComponent() {
         return headerMenuComponent;
     }
 
-    public SideMenuComponent getSideMenuComponent() {
+    public SideMenuComponentHW5 getSideMenuComponent() {
         return sideMenuComponent;
     }
 
@@ -86,5 +86,10 @@ public class HomePage {
 
     public WebElement getDifferentElements() {
         return differentElements;
+    }
+
+    public void openHomePage() {
+        webDriver.manage().window().maximize();
+        webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
     }
 }

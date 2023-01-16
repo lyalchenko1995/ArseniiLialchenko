@@ -1,13 +1,15 @@
-package com.epam.tc.hw4.utils;
+package com.epam.tc.hw4.steps;
 
 import static com.epam.tc.hw4.tests.BaseTest.webDriver;
 
+import com.epam.tc.hw4.utils.PageObjectInitialization;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-public class ActionStep extends PageObjectInitialization {
 
-    public ActionStep(WebDriver webDriver) {
+public class ActionSteps extends PageObjectInitialization {
+
+    public ActionSteps(WebDriver webDriver) {
         super(webDriver);
     }
 

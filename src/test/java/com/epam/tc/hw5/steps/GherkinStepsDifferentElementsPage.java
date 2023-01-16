@@ -1,0 +1,74 @@
+package com.epam.tc.hw5.steps;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.epam.tc.hw5.utils.PageObjectInitializationHW5;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.WebElement;
+
+public class GherkinStepsDifferentElementsPage extends PageObjectInitializationHW5 {
+
+    @When("User opens the website")
+    public void user_opens_the_website() {
+        homePage.openHomePage();
+    }
+
+    @Then("Page Title should be {string}")
+    public void page_title_should_be(String pageTitle) {
+        assertThat(homePage.getTitle()).isEqualTo(pageTitle);
+    }
+
+    @When("User logins with login {string} and password {string}")
+    public void user_logins_with_login_and_password(String login, String password) {
+        loginPage.clickUserIcon().setUserName(login).setUserPassword(password).clickLoginButton();
+    }
+
+    @Then("User name {string} should be displayed")
+    public void user_name_should_be_displayed(String userName) {
+        assertThat(loginPage.getUserName().getText()).isEqualTo(userName);
+    }
+
+    @When("User navigates to different elements page")
+    public void user_navigates_to_different_elements_page() {
+        homePage.getHeaderMenuComponent().getServiceHeaderElement().click();
+        homePage.getDifferentElements().click();
+    }
+
+    @When("User clicks on check box {string}")
+    public void user_clicks_on_check_box(String checkBox) {
+        differentElementsPage.findElement(checkBox).click();
+    }
+
+    @Then("Check box {string} should be selected")
+    public void check_box_should_be_selected(String checkBox) {
+        WebElement checkBoxElement = differentElementsPage.findElement(checkBox);
+        assertThat(checkBoxElement.isSelected()).isTrue();
+    }
+
+    @When("User selects color {string}")
+    public void user_selects_color(String color) {
+        differentElementsPage.getColorsDropDownComponent().clickOnDropDownColor();
+        differentElementsPage.getColorsDropDownComponent().findColor(color).click();
+    }
+
+    @Then("Color {string} should be selected")
+    public void color_should_be_selected(String color) {
+        assertThat(differentElementsPage.getColorsDropDownComponent().findColor(color)
+                .getText()).isEqualTo(color);
+    }
+
+    @And("Logs should be displayed")
+    public void logs_are_displayed() {
+        assertThat(differentElementsPage.getLogComponent().getLogs().size()).isEqualTo(4);
+        assertThat(differentElementsPage.getLogComponent()
+                .isNatureElementDisplayed("Water", "true")).isTrue();
+        assertThat(differentElementsPage.getLogComponent()
+                .isNatureElementDisplayed("Wind", "true")).isTrue();
+        assertThat(differentElementsPage.getLogComponent()
+                .isMetalOrColorDisplayed("metal", "Selen")).isTrue();
+        assertThat(differentElementsPage.getLogComponent()
+                .isMetalOrColorDisplayed("Colors", "Yellow")).isTrue();
+    }
+}
