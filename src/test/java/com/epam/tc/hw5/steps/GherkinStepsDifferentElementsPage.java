@@ -3,7 +3,6 @@ package com.epam.tc.hw5.steps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.epam.tc.hw5.utils.PageObjectInitializationHW5;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
@@ -59,7 +58,7 @@ public class GherkinStepsDifferentElementsPage extends PageObjectInitializationH
                 .getText()).isEqualTo(color);
     }
 
-    @And("Logs should be displayed")
+    @Then("Logs should be displayed")
     public void logs_are_displayed() {
         assertThat(differentElementsPage.getLogComponent().getLogs().size()).isEqualTo(4);
         assertThat(differentElementsPage.getLogComponent()
@@ -70,5 +69,11 @@ public class GherkinStepsDifferentElementsPage extends PageObjectInitializationH
                 .isMetalOrColorDisplayed("metal", "Selen")).isTrue();
         assertThat(differentElementsPage.getLogComponent()
                 .isMetalOrColorDisplayed("Colors", "Yellow")).isTrue();
+    }
+
+    @When("User clicks on {string} button in Service dropdown")
+    public void user_clicks_on_button_in_service_dropdown(String item) {
+        homePage.getHeaderMenuComponent().clickOnServiceItem();
+        homePage.clickServiceMenuItem(item);
     }
 }

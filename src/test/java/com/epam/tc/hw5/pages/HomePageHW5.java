@@ -3,6 +3,7 @@ package com.epam.tc.hw5.pages;
 import com.epam.tc.hw5.pages.components.HeaderMenuComponentHW5;
 import com.epam.tc.hw5.pages.components.SideMenuComponentHW5;
 import java.util.List;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -91,5 +92,10 @@ public class HomePageHW5 extends MainPageHW5 {
     public void openHomePage() {
         webDriver.manage().window().maximize();
         webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
+    }
+
+    public void clickServiceMenuItem(String item) {
+        WebElement serviceMenuItem = webDriver.findElement(By.xpath("//a[contains(text(),'" + item + "')]"));
+        serviceMenuItem.click();
     }
 }

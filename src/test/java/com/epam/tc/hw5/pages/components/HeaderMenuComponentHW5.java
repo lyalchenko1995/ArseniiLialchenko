@@ -40,4 +40,8 @@ public class HeaderMenuComponentHW5 {
     public WebElement getMetalColorsHeaderElement() {
         return metalColorsHeaderElement;
     }
+
+    public void clickOnServiceItem() {
+        serviceHeaderElement.click();
+    }
 }
