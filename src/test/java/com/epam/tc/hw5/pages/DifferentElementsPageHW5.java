@@ -5,7 +5,10 @@ import com.epam.tc.hw5.pages.components.LogComponentHW5;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class DifferentElementsPageHW5 extends MainPageHW5 {
 
@@ -30,10 +33,20 @@ public class DifferentElementsPageHW5 extends MainPageHW5 {
         return logComponent;
     }
 
+    @FindBy(css = "div [class='checkbox-row'] > label")
+    private List<WebElement> checkboxList;
 
-    public WebElement findElement(String checkBoxName) {
-        String xpath = String.format("//label[text()[contains(.,' %s')]]/input", checkBoxName);
-        WebElement checkBoxElement = webDriver.findElement(By.xpath(xpath));
-        return checkBoxElement;
+    public List<WebElement> getCheckboxList() {
+        return checkboxList;
+    }
+
+    public WebElement findElementFromList(String checkboxName) {
+        WebElement element = null;
+        for (WebElement webElement: getCheckboxList()) {
+            if(webElement.getText().equals(checkboxName)) {
+                element = webElement;
+            }
+        }
+        return element;
     }
 }

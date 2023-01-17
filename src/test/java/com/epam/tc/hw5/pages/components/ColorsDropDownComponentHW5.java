@@ -1,10 +1,11 @@
 package com.epam.tc.hw5.pages.components;
 
 import com.epam.tc.hw5.pages.MainPageHW5;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 
 public class ColorsDropDownComponentHW5 extends MainPageHW5 {
@@ -14,6 +15,9 @@ public class ColorsDropDownComponentHW5 extends MainPageHW5 {
 
     @FindBy(xpath = ".//*[@class='colors']//*[@class='uui-form-element']//option[text() = 'Yellow']")
     private WebElement yellowColor;
+
+    @FindBy(css = "div [class='uui-form-element'] > option")
+    private List<WebElement> colorsList;
 
     public ColorsDropDownComponentHW5(WebDriver webDriver) {
         super(webDriver);
@@ -27,10 +31,25 @@ public class ColorsDropDownComponentHW5 extends MainPageHW5 {
         return yellowColor;
     }
 
-    public WebElement findColor(String colorName) {
-        String xpath =
-                String.format(".//*[@class='colors']//*[@class='uui-form-element']//option[text() = '%s']", colorName);
-        WebElement checkBoxElement = webDriver.findElement(By.xpath(xpath));
-        return checkBoxElement;
+    public List<WebElement> getColorsList() {
+        return colorsList;
+    }
+
+    public void selectColorFromList(String colorName) {
+        for (WebElement webElement: getColorsList()) {
+            if(webElement.getText().equals(colorName)) {
+                webElement.click();
+            }
+        }
+    }
+
+    public boolean isColorDisplayed(String colorName) {
+        boolean isDisplayed = false;
+        for (WebElement webElement: getColorsList()) {
+            if(webElement.getText().equals(colorName) & webElement.isDisplayed()) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
     }
 }

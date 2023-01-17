@@ -37,25 +37,22 @@ public class GherkinStepsDifferentElementsPage extends PageObjectInitializationH
 
     @When("User clicks on check box {string}")
     public void user_clicks_on_check_box(String checkBox) {
-        differentElementsPage.findElement(checkBox).click();
+        differentElementsPage.findElementFromList(checkBox).click();
     }
 
     @Then("Check box {string} should be selected")
     public void check_box_should_be_selected(String checkBox) {
-        WebElement checkBoxElement = differentElementsPage.findElement(checkBox);
-        assertThat(checkBoxElement.isSelected()).isTrue();
+        assertThat(differentElementsPage.findElementFromList(checkBox).isEnabled()).isTrue();
     }
 
     @When("User selects color {string}")
     public void user_selects_color(String color) {
-        differentElementsPage.getColorsDropDownComponent().clickOnDropDownColor();
-        differentElementsPage.getColorsDropDownComponent().findColor(color).click();
+        differentElementsPage.getColorsDropDownComponent().selectColorFromList(color);
     }
 
     @Then("Color {string} should be selected")
     public void color_should_be_selected(String color) {
-        assertThat(differentElementsPage.getColorsDropDownComponent().findColor(color)
-                .getText()).isEqualTo(color);
+        assertThat(differentElementsPage.getColorsDropDownComponent().isColorDisplayed(color)).isTrue();
     }
 
     @Then("Logs should be displayed")
