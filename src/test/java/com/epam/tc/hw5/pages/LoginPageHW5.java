@@ -77,4 +77,9 @@ public class LoginPageHW5 extends MainPageHW5 {
         this.getLoginButton().click();
         return this;
     }
+
+    public void openMainPage() {
+        webDriver.manage().window().maximize();
+        webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
+    }
 }

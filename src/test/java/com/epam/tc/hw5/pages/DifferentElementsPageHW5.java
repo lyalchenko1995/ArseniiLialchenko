@@ -2,13 +2,11 @@ package com.epam.tc.hw5.pages;
 
 import com.epam.tc.hw5.pages.components.ColorsDropDownComponentHW5;
 import com.epam.tc.hw5.pages.components.LogComponentHW5;
-import org.openqa.selenium.By;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
 
 public class DifferentElementsPageHW5 extends MainPageHW5 {
 
@@ -42,8 +40,8 @@ public class DifferentElementsPageHW5 extends MainPageHW5 {
 
     public WebElement findElementFromList(String checkboxName) {
         WebElement element = null;
-        for (WebElement webElement: getCheckboxList()) {
-            if(webElement.getText().equals(checkboxName)) {
+        for (WebElement webElement : getCheckboxList()) {
+            if (webElement.getText().equals(checkboxName)) {
                 element = webElement;
             }
         }

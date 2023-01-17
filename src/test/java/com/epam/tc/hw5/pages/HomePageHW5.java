@@ -89,11 +89,6 @@ public class HomePageHW5 extends MainPageHW5 {
         return differentElements;
     }
 
-    public void openHomePage() {
-        webDriver.manage().window().maximize();
-        webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
-    }
-
     public void clickServiceMenuItem(String item) {
         WebElement serviceMenuItem = webDriver.findElement(By.xpath("//a[contains(text(),'" + item + "')]"));
         serviceMenuItem.click();

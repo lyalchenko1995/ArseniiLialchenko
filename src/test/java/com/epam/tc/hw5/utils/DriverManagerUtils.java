@@ -19,6 +19,7 @@ public class DriverManagerUtils {
     public static void tearDownDriver() {
         if (webDriver != null) {
             webDriver.quit();
+            webDriver = null;
         }
     }
 }

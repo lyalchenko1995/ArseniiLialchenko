@@ -1,11 +1,10 @@
 package com.epam.tc.hw5.pages.components;
 
 import com.epam.tc.hw5.pages.MainPageHW5;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 
 public class ColorsDropDownComponentHW5 extends MainPageHW5 {
@@ -36,8 +35,8 @@ public class ColorsDropDownComponentHW5 extends MainPageHW5 {
     }
 
     public void selectColorFromList(String colorName) {
-        for (WebElement webElement: getColorsList()) {
-            if(webElement.getText().equals(colorName)) {
+        for (WebElement webElement : getColorsList()) {
+            if (webElement.getText().equals(colorName)) {
                 webElement.click();
             }
         }
@@ -45,8 +44,8 @@ public class ColorsDropDownComponentHW5 extends MainPageHW5 {
 
     public boolean isColorDisplayed(String colorName) {
         boolean isDisplayed = false;
-        for (WebElement webElement: getColorsList()) {
-            if(webElement.getText().equals(colorName) & webElement.isDisplayed()) {
+        for (WebElement webElement : getColorsList()) {
+            if (webElement.getText().equals(colorName) & webElement.isDisplayed()) {
                 isDisplayed = true;
             }
         }

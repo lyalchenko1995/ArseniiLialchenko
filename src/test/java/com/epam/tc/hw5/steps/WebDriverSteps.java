@@ -7,7 +7,7 @@ import io.cucumber.java.Before;
 public class WebDriverSteps {
 
     @Before
-    public void setUp() {
+    public static void setUp() {
         DriverManagerUtils.setupDriver();
     }
 

@@ -5,13 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.epam.tc.hw5.utils.PageObjectInitializationHW5;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebElement;
 
 public class GherkinStepsDifferentElementsPage extends PageObjectInitializationHW5 {
 
     @When("User opens the website")
     public void user_opens_the_website() {
-        homePage.openHomePage();
+        loginPage.openMainPage();
     }
 
     @Then("Page Title should be {string}")
