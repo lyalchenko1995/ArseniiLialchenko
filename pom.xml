@@ -24,6 +24,8 @@
         <allure-maven>2.12.0</allure-maven>
         <aspectj.version>1.9.19</aspectj.version>
         <lombok.version>1.18.24</lombok.version>
+        <cucumber-java.version>7.11.0</cucumber-java.version>
+        <cucumber-testng.version>7.11.0</cucumber-testng.version>
     </properties>
 
     <dependencies>
@@ -60,7 +62,6 @@
             <version>${assertj-core}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -71,6 +72,16 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-testng.version}</version>
         </dependency>
     </dependencies>
 
@@ -174,11 +185,17 @@
         </profile>
         <profile>
             <id>HW4</id>
+            <properties>
+                <suite.xml.file>suiteHW4.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW5</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml.file>suiteHW4.xml</suite.xml.file>
+                <suite.xml.file>suiteHW5.xml</suite.xml.file>
             </properties>
         </profile>
     </profiles>

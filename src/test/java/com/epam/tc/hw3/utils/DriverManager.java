@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverManager {
 
+
     public WebDriver setupDriver(String url) {
         setupChromeDriver();
         WebDriver webDriver = new ChromeDriver();

@@ -1,7 +1,8 @@
-package com.epam.tc.hw4.utils;
+package com.epam.tc.hw4.steps;
 
 import static com.epam.tc.hw4.tests.BaseTest.webDriver;
 
+import com.epam.tc.hw4.utils.PageObjectInitialization;
 import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,8 +11,10 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AssertStep extends PageObjectInitialization {
-    public AssertStep(WebDriver webDriver) {
+
+public class AssertSteps extends PageObjectInitialization {
+
+    public AssertSteps(WebDriver webDriver) {
         super(webDriver);
     }
 

@@ -12,15 +12,15 @@ public class TestHomePage extends BaseTest {
     @Test
     @Description("Test home page")
     public void testHomePage() {
-        assertStep.assertTitle("Home Page");
-        actionStep.login(USER_LOGIN, USER_PASSWORD);
-        assertStep.assertLogin(USER_NAME);
-        assertStep.assertHeaders();
-        assertStep.assertImages();
-        assertStep.assertTextsForImages();
-        actionStep.switchToIFrame();
-        assertStep.assertIFrame();
-        actionStep.switchToOriginalWindow();
-        assertStep.assertLeftSection();
+        assertSteps.assertTitle("Home Page");
+        actionSteps.login(USER_LOGIN, USER_PASSWORD);
+        assertSteps.assertLogin(USER_NAME);
+        assertSteps.assertHeaders();
+        assertSteps.assertImages();
+        assertSteps.assertTextsForImages();
+        actionSteps.switchToIFrame();
+        assertSteps.assertIFrame();
+        actionSteps.switchToOriginalWindow();
+        assertSteps.assertLeftSection();
     }
 }
