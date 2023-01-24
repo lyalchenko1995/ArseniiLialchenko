@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="suiteHW6">
+    <listeners>
+        <listener class-name="com.epam.tc.hw4.utils.ScreenShotListener"></listener>
+    </listeners>
+
+    <parameter name="hub" value="http://192.168.1.199:4444/wd/hub"/>
+
+    <test name="HW6 test chrome">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="isLocal" value="true"/>
+        <classes>
+            <class name="com.epam.tc.hw6.Test1FromHW4"/>
+            <class name="com.epam.tc.hw6.Test2FromHW4"/>
+        </classes>
+    </test>
+
+    <test name="HW6 test firefox">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="isLocal" value="true"/>
+        <classes>
+            <class name="com.epam.tc.hw6.Test1FromHW4"/>
+            <class name="com.epam.tc.hw6.Test2FromHW4"/>
+        </classes>
+    </test>
+</suite>
