@@ -196,12 +196,18 @@
             </properties>
         </profile>
         <profile>
-            <id>HW6</id>
+            <id>HW6Local</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml.file>suiteHW6.xml</suite.xml.file>
+                <suite.xml.file>suiteHW6Local.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW6Remote</id>
+            <properties>
+                <suite.xml.file>suiteHW6Remote.xml</suite.xml.file>
             </properties>
         </profile>
     </profiles>
