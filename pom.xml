@@ -191,11 +191,17 @@
         </profile>
         <profile>
             <id>HW5</id>
+            <properties>
+                <suite.xml.file>suiteHW5.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW6</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml.file>suiteHW5.xml</suite.xml.file>
+                <suite.xml.file>suiteHW6.xml</suite.xml.file>
             </properties>
         </profile>
     </profiles>

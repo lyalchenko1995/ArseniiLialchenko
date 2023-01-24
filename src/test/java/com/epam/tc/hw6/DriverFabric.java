@@ -1,12 +1,11 @@
 package com.epam.tc.hw6;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.Locale;
 import lombok.NonNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.Locale;
 
 public class DriverFabric {
 

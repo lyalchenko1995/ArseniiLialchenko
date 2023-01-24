@@ -1,5 +1,6 @@
 package com.epam.tc.hw6;
 
+import com.epam.tc.hw4.tests.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -7,7 +8,7 @@ import org.testng.annotations.Test;
 
 @Feature("Different elements page feature")
 @Story("Different elements page story")
-public class Test2FromHW4 extends BaseTestHW6 {
+public class Test2FromHW4 extends BaseTest {
 
     @Test
     @Description("Test different elements page")
