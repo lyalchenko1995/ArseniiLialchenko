@@ -1,9 +1,8 @@
 package com.epam.tc.hw4.tests;
 
-import com.epam.tc.hw3.utils.DriverManager;
 import com.epam.tc.hw4.steps.ActionSteps;
 import com.epam.tc.hw4.steps.AssertSteps;
-import com.epam.tc.hw6.DriverFabric;
+import com.epam.tc.hw6.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
@@ -25,7 +24,7 @@ public class BaseTest {
     @Parameters({"isLocal", "hub", "browser"})
     public void prepareToTest(ITestContext testContext,
                               @Optional("false") final boolean isLocal, final String hub, final String browser) {
-        webDriver = DriverFabric.getWebDriver(isLocal, hub, browser);
+        webDriver = DriverFactory.getWebDriver(isLocal, hub, browser);
         testContext.setAttribute("driver", webDriver);
         webDriver.manage().window().maximize();
         webDriver.get(URL);

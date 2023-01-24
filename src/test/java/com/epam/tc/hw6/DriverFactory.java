@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class DriverFabric {
+public class DriverFactory {
 
     public static WebDriver getWebDriver(final boolean isLocal, final String hub, @NonNull final String browser) {
 
