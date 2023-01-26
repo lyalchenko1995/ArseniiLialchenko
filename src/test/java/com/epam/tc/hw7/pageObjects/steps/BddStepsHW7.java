@@ -1,7 +1,5 @@
 package com.epam.tc.hw7.pageObjects.steps;
 
-import com.epam.jdi.light.driver.WebDriverUtils;
-import com.epam.jdi.light.elements.init.PageFactory;
 import com.epam.tc.hw7.pageObjects.SiteJdi;
 import com.epam.tc.hw7.pageObjects.entities.User;
 import com.epam.tc.hw7.pageObjects.utils.PageObjectInitializationJDI;
@@ -23,7 +21,6 @@ public class BddStepsHW7 extends PageObjectInitializationJDI {
 
     @And("User opens Metals & Colors page by Header menu")
     public void user_opens_Metal_Colors_page_by_Header_menu() {
-
     }
 
     @And("User fills form Metals & Colors by data")

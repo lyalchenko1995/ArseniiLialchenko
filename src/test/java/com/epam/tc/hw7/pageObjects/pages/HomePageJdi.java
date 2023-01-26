@@ -5,11 +5,13 @@ import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.ui.html.elements.common.Icon;
 import com.epam.tc.hw7.pageObjects.entities.User;
+import com.epam.tc.hw7.pageObjects.forms.HeaderMenuFormJdi;
 import com.epam.tc.hw7.pageObjects.forms.LoginFormJdi;
 
 public class HomePageJdi extends WebPage {
 
     public LoginFormJdi loginFormJdi;
+    public HeaderMenuFormJdi headerMenuFormJdi;
 
     @FindBy(id = "user-icon")
     public Icon userIcon;

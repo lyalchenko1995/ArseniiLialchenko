@@ -10,6 +10,7 @@ public class PageObjectInitializationJDI {
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         PageFactory.initSite(SiteJdi.class);
+
     }
 
     @AfterClass(alwaysRun = true)
