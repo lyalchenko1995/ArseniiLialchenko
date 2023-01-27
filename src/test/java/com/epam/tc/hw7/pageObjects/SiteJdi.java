@@ -9,10 +9,10 @@ import com.epam.tc.hw7.pageObjects.pages.MetalsColorsPageJdi;
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class SiteJdi {
 
-    @Url("/index.html")
+    @Url("index.html")
     public static HomePageJdi homePageJdi;
 
-    @Url("/metals-colors.html")
+    @Url("metals-colors.html")
     public static MetalsColorsPageJdi metalsColorsPageJdi;
 
     public static void open() {
