@@ -15,7 +15,7 @@ public class SiteJdi {
     @Url("metals-colors.html")
     public static MetalsColorsPageJdi metalsColorsPageJdi;
 
-    public static void open() {
+    public static void openHomePage() {
         homePageJdi.open();
     }
 

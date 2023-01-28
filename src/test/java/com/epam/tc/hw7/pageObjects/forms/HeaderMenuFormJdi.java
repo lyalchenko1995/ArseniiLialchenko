@@ -7,6 +7,10 @@ import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 public class HeaderMenuFormJdi extends Form {
 
     @FindBy(css = "ul[class='uui-navigation nav navbar-nav m-l8'] > li")
-    public Menu navigation;
+    public Menu headerBar;
+
+    public void selectMetalsColorsMenu() {
+        headerBar.select("Metals & Colors");
+    }
 
 }

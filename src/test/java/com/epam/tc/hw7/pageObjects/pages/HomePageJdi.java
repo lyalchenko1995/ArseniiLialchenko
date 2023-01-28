@@ -27,4 +27,12 @@ public class HomePageJdi extends WebPage {
     public String getUserName() {
         return userName.getText();
     }
+
+    public void checkUserLoggedIn(User user) {
+        userName.is().text(user.getFullName());
+    }
+
+    public void openMetalsColorsPage() {
+        headerMenuFormJdi.selectMetalsColorsMenu();
+    }
 }
