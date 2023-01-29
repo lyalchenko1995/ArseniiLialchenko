@@ -32,6 +32,6 @@ public class StepsHW7 {
             SiteJdi.metalsColorsPageJdi.selectMetals(met);
             SiteJdi.metalsColorsPageJdi.selectVegetables(veg);
             SiteJdi.metalsColorsPageJdi.submit();
-            SiteJdi.metalsColorsPageJdi.checkResultSection();
+            SiteJdi.metalsColorsPageJdi.checkResultSection(sum, el,col,met,veg);
     }
 }

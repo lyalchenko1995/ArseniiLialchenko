@@ -11,6 +11,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.MultiDropdown;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -74,9 +75,20 @@ public class MetalsColorsPageJdi extends WebPage {
         submitButton.click();
     }
 
-    public void checkResultSection() {
+    public void checkResultSection(List<Integer> sum, List<String> el, String col, String met, List<String> veg) {
+        String expectedSummary = "Summary: " + String.valueOf(sum.get(0) + sum.get(1));
 
+        Assert.assertTrue(result.get(0).getText().equals(expectedSummary));
 
-        System.out.println("222");
+        for (String str: el) {
+            Assert.assertTrue(result.get(1).getText().contains(str));
+        }
+
+        Assert.assertTrue(result.get(2).getText().equals("Color: " + col));
+        Assert.assertTrue(result.get(3).getText().equals("Metal: " + met));
+
+        for (String str: veg) {
+            Assert.assertTrue(result.get(4).getText().contains(str));
+        }
     }
 }
