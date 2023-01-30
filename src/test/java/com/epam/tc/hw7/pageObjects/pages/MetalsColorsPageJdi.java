@@ -2,15 +2,14 @@ package com.epam.tc.hw7.pageObjects.pages;
 
 import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.complex.Menu;
+import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.MultiDropdown;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.util.List;
@@ -42,7 +41,7 @@ public class MetalsColorsPageJdi extends WebPage {
     public Button submitButton;
 
     @FindBy(css = "ul[class='panel-body-list results'] > li")
-    public List<WebElement> result;
+    public WebList result;
 
     public void selectSummary(List<Integer> sum) {
         summary.select(sum.get(0));
@@ -77,18 +76,18 @@ public class MetalsColorsPageJdi extends WebPage {
 
     public void checkResultSection(List<Integer> sum, List<String> el, String col, String met, List<String> veg) {
         String expectedSummary = "Summary: " + String.valueOf(sum.get(0) + sum.get(1));
-
-        Assert.assertTrue(result.get(0).getText().equals(expectedSummary));
+        Assert.assertTrue(result.get(1).getText().equals(expectedSummary));
 
         for (String str: el) {
-            Assert.assertTrue(result.get(1).getText().contains(str));
+            Assert.assertTrue(result.get(2).getText().contains(str));
         }
 
-        Assert.assertTrue(result.get(2).getText().equals("Color: " + col));
-        Assert.assertTrue(result.get(3).getText().equals("Metal: " + met));
+        Assert.assertTrue(result.get(3).getText().equals("Color: " + col));
+
+        Assert.assertTrue(result.get(4).getText().equals("Metal: " + met));
 
         for (String str: veg) {
-            Assert.assertTrue(result.get(4).getText().contains(str));
+            Assert.assertTrue(result.get(5).getText().contains(str));
         }
     }
 }
