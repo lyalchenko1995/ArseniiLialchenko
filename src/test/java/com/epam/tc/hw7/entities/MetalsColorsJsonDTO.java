@@ -1,7 +1,6 @@
 package com.epam.tc.hw7.entities;
 
 import java.util.List;
-
 import lombok.Data;
 
 @Data
