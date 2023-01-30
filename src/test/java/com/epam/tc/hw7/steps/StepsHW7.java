@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.epam.tc.TestData;
 import com.epam.tc.hw7.SiteJdi;
 import com.epam.tc.hw7.entities.MetalsColorsJsonDTO;
+import java.util.List;
 
 public class StepsHW7 {
 
@@ -25,25 +26,23 @@ public class StepsHW7 {
         SiteJdi.metalsColorsPage.metalsColorsForm.selectMetals(dto.getMetals());
         SiteJdi.metalsColorsPage.metalsColorsForm.selectVegetables(dto.getVegetables());
         SiteJdi.metalsColorsPage.metalsColorsForm.submit();
-        checkResultSection(dto);
+        checkResultSection(dto, SiteJdi.metalsColorsPage.metalsColorsLogForm.getLogList());
     }
 
-    public static void checkResultSection(MetalsColorsJsonDTO dto) {
+    public static void checkResultSection(MetalsColorsJsonDTO dto, List<String> logLost) {
         String expectedSummary = "Summary: " + String.valueOf(dto.getSummary().get(0) + dto.getSummary().get(1));
-        assertThat(SiteJdi.metalsColorsPage.metalsColorsLogForm.result.get(1).getText()).isEqualTo(expectedSummary);
+        assertThat(logLost.get(0)).isEqualTo(expectedSummary);
 
         for (String str : dto.getElements()) {
-            assertThat(SiteJdi.metalsColorsPage.metalsColorsLogForm.result.get(2).getText()).contains(str);
+            assertThat(logLost.get(1).contains(str));
         }
 
-        assertThat(SiteJdi.metalsColorsPage.metalsColorsLogForm.result.get(3).getText())
-                .isEqualTo("Color: " + dto.getColor());
+        assertThat(logLost.get(2)).isEqualTo("Color: " + dto.getColor());
 
-        assertThat(SiteJdi.metalsColorsPage.metalsColorsLogForm.result.get(4).getText())
-                .isEqualTo("Metal: " + dto.getMetals());
+        assertThat(logLost.get(3)).isEqualTo("Metal: " + dto.getMetals());
 
         for (String str : dto.getVegetables()) {
-            assertThat(SiteJdi.metalsColorsPage.metalsColorsLogForm.result.get(5).getText()).contains(str);
+            assertThat(logLost.get(4)).contains(str);
         }
     }
 }

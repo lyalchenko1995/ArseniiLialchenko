@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.testng.annotations.DataProvider;
 
-
 public class MetalColorsDataProvider {
 
     public static Map<String, MetalsColorsJsonDTO> getDTOfromJson() throws Exception {
