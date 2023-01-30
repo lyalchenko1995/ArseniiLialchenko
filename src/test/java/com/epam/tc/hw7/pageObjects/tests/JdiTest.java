@@ -10,6 +10,7 @@ import com.epam.tc.hw7.pageObjects.utils.MetalColorsDataProvider;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.*;
+
 import java.util.List;
 import java.util.Map;
 
@@ -21,19 +22,19 @@ public class JdiTest {
     @DataProvider(name = "json")
     public Object[][] dataProvider() {
         mapFromJSON = MetalColorsDataProvider.getDTOfromJSON();
-        return new Object[][]{
-                {mapFromJSON.get("data_1").summary, mapFromJSON.get("data_1").elements, mapFromJSON.get("data_1").color,
-                        mapFromJSON.get("data_1").metals,mapFromJSON.get("data_1").vegetables}
-                ,
-                {mapFromJSON.get("data_2").summary, mapFromJSON.get("data_2").elements, mapFromJSON.get("data_2").color,
-                        mapFromJSON.get("data_2").metals,mapFromJSON.get("data_2").vegetables},
-                {mapFromJSON.get("data_3").summary, mapFromJSON.get("data_3").elements, mapFromJSON.get("data_3").color,
-                        mapFromJSON.get("data_3").metals,mapFromJSON.get("data_3").vegetables},
-                {mapFromJSON.get("data_4").summary, mapFromJSON.get("data_4").elements, mapFromJSON.get("data_4").color,
-                        mapFromJSON.get("data_4").metals,mapFromJSON.get("data_4").vegetables},
-                {mapFromJSON.get("data_5").summary, mapFromJSON.get("data_5").elements, mapFromJSON.get("data_5").color,
-                        mapFromJSON.get("data_5").metals,mapFromJSON.get("data_5").vegetables}
-        };
+        mapFromJSON.size();
+        Object ars[][] = new Object[mapFromJSON.size()][mapFromJSON.entrySet().size()];
+        int i = 0;
+        for (Map.Entry<String, DTO> entry : mapFromJSON.entrySet()) {
+            entry.getValue();
+            ars[i][0] = entry.getValue().summary;
+            ars[i][1] = entry.getValue().elements;
+            ars[i][2] = entry.getValue().color;
+            ars[i][3] = entry.getValue().metals;
+            ars[i][4] = entry.getValue().vegetables;
+            i++;
+        }
+        return ars;
     }
 
     @BeforeTest(alwaysRun = true)
@@ -48,9 +49,8 @@ public class JdiTest {
     }
 
     @Test(dataProvider = "json")
-   public void testMetalsColors(List<Integer> sum, List<String> el,String col,String met,List<String> veg){
-
+    public void testMetalsColors(List<Integer> sum, List<String> el, String col, String met, List<String> veg) {
         StepsHW7.navigateToMetalsColorsPage();
-        StepsHW7.checkMetalsColorsForm(sum, el, col,met, veg);
+        StepsHW7.checkMetalsColorsForm(sum, el, col, met, veg);
     }
 }

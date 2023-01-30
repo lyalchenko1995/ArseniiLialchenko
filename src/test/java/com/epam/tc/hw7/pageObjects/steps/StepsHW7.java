@@ -26,12 +26,12 @@ public class StepsHW7 {
     }
 
     public static void checkMetalsColorsForm(List<Integer> sum, List<String> el, String col, String met, List<String> veg) {
-            SiteJdi.metalsColorsPageJdi.selectSummary(sum);
-            SiteJdi.metalsColorsPageJdi.selectElements(el);
-            SiteJdi.metalsColorsPageJdi.selectColors(col);
-            SiteJdi.metalsColorsPageJdi.selectMetals(met);
-            SiteJdi.metalsColorsPageJdi.selectVegetables(veg);
-            SiteJdi.metalsColorsPageJdi.submit();
-            SiteJdi.metalsColorsPageJdi.checkResultSection(sum, el,col,met,veg);
+        SiteJdi.metalsColorsPageJdi.selectSummary(sum);
+        SiteJdi.metalsColorsPageJdi.selectElements(el);
+        SiteJdi.metalsColorsPageJdi.selectColors(col);
+        SiteJdi.metalsColorsPageJdi.selectMetals(met);
+        SiteJdi.metalsColorsPageJdi.selectVegetables(veg);
+        SiteJdi.metalsColorsPageJdi.submit();
+        SiteJdi.metalsColorsPageJdi.checkResultSection(sum, el, col, met, veg);
     }
 }

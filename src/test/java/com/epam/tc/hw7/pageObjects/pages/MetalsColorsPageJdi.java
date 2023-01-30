@@ -78,7 +78,7 @@ public class MetalsColorsPageJdi extends WebPage {
         String expectedSummary = "Summary: " + String.valueOf(sum.get(0) + sum.get(1));
         Assert.assertTrue(result.get(1).getText().equals(expectedSummary));
 
-        for (String str: el) {
+        for (String str : el) {
             Assert.assertTrue(result.get(2).getText().contains(str));
         }
 
@@ -86,7 +86,7 @@ public class MetalsColorsPageJdi extends WebPage {
 
         Assert.assertTrue(result.get(4).getText().equals("Metal: " + met));
 
-        for (String str: veg) {
+        for (String str : veg) {
             Assert.assertTrue(result.get(5).getText().contains(str));
         }
     }
