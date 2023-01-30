@@ -1,9 +1,8 @@
-package com.epam.tc.hw7.pageObjects.utils;
+package com.epam.tc.hw7.utils;
 
-import com.epam.tc.hw7.pageObjects.entities.DTO;
+import com.epam.tc.hw7.entities.DTO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ public class MetalColorsDataProvider {
 
     private static final String PATH = "src\\test\\resources\\JDI_ex8_metalsColorsDataSet.json";
 
-    public static Map<String, DTO> getDTOfromJSON() {
+    public static Map<String, DTO> getDTOfromJson() {
         HashMap<String, DTO> map = new HashMap<>();
         ObjectMapper mapper = new ObjectMapper();
         try {

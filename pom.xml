@@ -232,5 +232,11 @@
                 <suite.xml.file>suiteHW6Remote.xml</suite.xml.file>
             </properties>
         </profile>
+        <profile>
+            <id>HW7</id>
+            <properties>
+                <suite.xml.file>suiteHW7.xml</suite.xml.file>
+            </properties>
+        </profile>
     </profiles>
 </project>

@@ -1,4 +1,4 @@
-package com.epam.tc.hw7.pageObjects.pages;
+package com.epam.tc.hw7.pages;
 
 import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.complex.Menu;
@@ -10,9 +10,8 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.MultiDropdown;
-import org.testng.Assert;
-
 import java.util.List;
+import org.testng.Assert;
 
 public class MetalsColorsPageJdi extends WebPage {
 

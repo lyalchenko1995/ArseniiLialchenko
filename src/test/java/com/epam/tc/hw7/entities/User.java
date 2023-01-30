@@ -1,4 +1,4 @@
-package com.epam.tc.hw7.pageObjects.entities;
+package com.epam.tc.hw7.entities;
 
 public class User {
     public static final User ROMAN = new User("Roman", "Jdi1234", "ROMAN IOVLEV");

@@ -1,9 +1,8 @@
-package com.epam.tc.hw7.pageObjects.entities;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.epam.tc.hw7.entities;
 
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 @Setter
 @Getter

@@ -1,31 +1,30 @@
-package com.epam.tc.hw7.pageObjects.steps;
+package com.epam.tc.hw7.steps;
 
-import com.epam.tc.hw7.pageObjects.SiteJdi;
-import com.epam.tc.hw7.pageObjects.entities.DTO;
-import com.epam.tc.hw7.pageObjects.utils.MetalColorsDataProvider;
-
+import com.epam.tc.hw7.SiteJdi;
+import com.epam.tc.hw7.entities.DTO;
+import com.epam.tc.hw7.entities.User;
+import com.epam.tc.hw7.utils.MetalColorsDataProvider;
 import java.util.List;
 import java.util.Map;
-
-import static com.epam.tc.hw7.pageObjects.entities.User.ROMAN;
 
 public class StepsHW7 {
 
     public static void loginJDI() {
         SiteJdi.openHomePage();
-        SiteJdi.login(ROMAN);
-        SiteJdi.homePageJdi.checkUserLoggedIn(ROMAN);
+        SiteJdi.login(User.ROMAN);
+        SiteJdi.homePageJdi.checkUserLoggedIn(User.ROMAN);
     }
 
     public static void navigateToMetalsColorsPage() {
         SiteJdi.homePageJdi.openMetalsColorsPage();
     }
 
-    public static Map<String, DTO> getDatafromJSON() {
-        return MetalColorsDataProvider.getDTOfromJSON();
+    public static Map<String, DTO> getDatafromJson() {
+        return MetalColorsDataProvider.getDTOfromJson();
     }
 
-    public static void checkMetalsColorsForm(List<Integer> sum, List<String> el, String col, String met, List<String> veg) {
+    public static void checkMetalsColorsForm(List<Integer> sum, List<String> el,
+                                             String col, String met, List<String> veg) {
         SiteJdi.metalsColorsPageJdi.selectSummary(sum);
         SiteJdi.metalsColorsPageJdi.selectElements(el);
         SiteJdi.metalsColorsPageJdi.selectColors(col);

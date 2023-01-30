@@ -1,10 +1,10 @@
-package com.epam.tc.hw7.pageObjects;
+package com.epam.tc.hw7;
 
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
-import com.epam.tc.hw7.pageObjects.entities.User;
-import com.epam.tc.hw7.pageObjects.pages.HomePageJdi;
-import com.epam.tc.hw7.pageObjects.pages.MetalsColorsPageJdi;
+import com.epam.tc.hw7.entities.User;
+import com.epam.tc.hw7.pages.HomePageJdi;
+import com.epam.tc.hw7.pages.MetalsColorsPageJdi;
 
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class SiteJdi {

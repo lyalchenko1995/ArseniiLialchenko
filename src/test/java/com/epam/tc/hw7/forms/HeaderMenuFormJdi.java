@@ -1,4 +1,4 @@
-package com.epam.tc.hw7.pageObjects.forms;
+package com.epam.tc.hw7.forms;
 
 import com.epam.jdi.light.elements.complex.Menu;
 import com.epam.jdi.light.elements.composite.Form;

@@ -1,31 +1,32 @@
-package com.epam.tc.hw7.pageObjects.tests;
-
+package com.epam.tc.hw7.tests;
 
 import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.elements.init.PageFactory;
-import com.epam.tc.hw7.pageObjects.SiteJdi;
-import com.epam.tc.hw7.pageObjects.entities.DTO;
-import com.epam.tc.hw7.pageObjects.steps.StepsHW7;
-import com.epam.tc.hw7.pageObjects.utils.MetalColorsDataProvider;
+import com.epam.tc.hw7.SiteJdi;
+import com.epam.tc.hw7.entities.DTO;
+import com.epam.tc.hw7.steps.StepsHW7;
+import com.epam.tc.hw7.utils.MetalColorsDataProvider;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.testng.annotations.*;
-
 import java.util.List;
 import java.util.Map;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 @Feature("Metals & Colors page feature")
 @Story("Metals & Colors page story")
 public class JdiTest {
-    Map<String, DTO> mapFromJSON;
+    Map<String, DTO> mapFromJson;
 
     @DataProvider(name = "json")
     public Object[][] dataProvider() {
-        mapFromJSON = MetalColorsDataProvider.getDTOfromJSON();
-        mapFromJSON.size();
-        Object ars[][] = new Object[mapFromJSON.size()][mapFromJSON.entrySet().size()];
+        mapFromJson = MetalColorsDataProvider.getDTOfromJson();
+        mapFromJson.size();
+        Object[][] ars = new Object[mapFromJson.size()][mapFromJson.entrySet().size()];
         int i = 0;
-        for (Map.Entry<String, DTO> entry : mapFromJSON.entrySet()) {
+        for (Map.Entry<String, DTO> entry : mapFromJson.entrySet()) {
             entry.getValue();
             ars[i][0] = entry.getValue().summary;
             ars[i][1] = entry.getValue().elements;
