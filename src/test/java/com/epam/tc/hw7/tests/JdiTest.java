@@ -24,18 +24,18 @@ public class JdiTest {
     public Object[][] dataProvider() {
         mapFromJson = MetalColorsDataProvider.getDTOfromJson();
         mapFromJson.size();
-        Object[][] ars = new Object[mapFromJson.size()][mapFromJson.entrySet().size()];
+        Object[][] objectMap = new Object[mapFromJson.size()][mapFromJson.entrySet().size()];
         int i = 0;
         for (Map.Entry<String, DTO> entry : mapFromJson.entrySet()) {
             entry.getValue();
-            ars[i][0] = entry.getValue().summary;
-            ars[i][1] = entry.getValue().elements;
-            ars[i][2] = entry.getValue().color;
-            ars[i][3] = entry.getValue().metals;
-            ars[i][4] = entry.getValue().vegetables;
+            objectMap[i][0] = entry.getValue().summary;
+            objectMap[i][1] = entry.getValue().elements;
+            objectMap[i][2] = entry.getValue().color;
+            objectMap[i][3] = entry.getValue().metals;
+            objectMap[i][4] = entry.getValue().vegetables;
             i++;
         }
-        return ars;
+        return objectMap;
     }
 
     @BeforeTest(alwaysRun = true)
