@@ -1,19 +1,21 @@
-package com.epam.tc.hw7.pages;
+package com.epam.tc.hw7.forms;
 
 import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.complex.Menu;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
-import com.epam.jdi.light.elements.composite.WebPage;
+import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.MultiDropdown;
 import java.util.List;
+
+import com.epam.tc.hw7.SiteJdi;
 import org.testng.Assert;
 
-public class MetalsColorsPageJdi extends WebPage {
+public class MetalsColorsForm extends Form {
 
     @FindBy(xpath = "//p[@class='radio'][contains(., '%s')]//label")
     public Menu summary;
@@ -68,6 +70,16 @@ public class MetalsColorsPageJdi extends WebPage {
         }
     }
 
+    public static void checkMetalsColorsForm(List<Integer> sum, List<String> el,
+                                             String col, String met, List<String> veg) {
+        SiteJdi.metalsColorsForm.selectSummary(sum);
+        SiteJdi.metalsColorsForm.selectElements(el);
+        SiteJdi.metalsColorsForm.selectColors(col);
+        SiteJdi.metalsColorsForm.selectMetals(met);
+        SiteJdi.metalsColorsForm.selectVegetables(veg);
+        SiteJdi.metalsColorsForm.submit();
+        SiteJdi.metalsColorsForm.checkResultSection(sum, el, col, met, veg);
+    }
 
     public void submit() {
         submitButton.click();

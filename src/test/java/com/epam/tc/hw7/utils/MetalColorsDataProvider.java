@@ -1,26 +1,43 @@
 package com.epam.tc.hw7.utils;
 
-import com.epam.tc.hw7.entities.DTO;
+import com.epam.tc.hw7.entities.MetalsColorsJsonDTO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
-import java.io.IOException;
+import org.testng.annotations.DataProvider;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MetalColorsDataProvider {
 
-    private static final String PATH = "src\\test\\resources\\JDI_ex8_metalsColorsDataSet.json";
-
-    public static Map<String, DTO> getDTOfromJson() {
-        HashMap<String, DTO> map = new HashMap<>();
+    public static Map<String, MetalsColorsJsonDTO> getDTOfromJson() throws Exception {
+        HashMap<String, MetalsColorsJsonDTO> map;
         ObjectMapper mapper = new ObjectMapper();
         try {
-            map = mapper.readValue(new File(PATH), new TypeReference<HashMap<String, DTO>>() {
+            map = mapper.readValue(MetalColorsDataProvider.class.getClassLoader().getResource("JDI_ex8_metalsColorsDataSet.json"),
+                    new TypeReference<HashMap<String, MetalsColorsJsonDTO>>() {
             });
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new Exception("Incorrect file");
         }
         return map;
+    }
+
+    @DataProvider(name = "json")
+    public Object[][] dataProvider() throws Exception {
+        Map<String, MetalsColorsJsonDTO> mapFromJson = MetalColorsDataProvider.getDTOfromJson();
+        mapFromJson.size();
+        Object[][] objectMap = new Object[mapFromJson.size()][5];
+        int i = 0;
+        for (Map.Entry<String, MetalsColorsJsonDTO> entry : mapFromJson.entrySet()) {
+            entry.getValue();
+            objectMap[i][0] = entry.getValue().getSummary();
+            objectMap[i][1] = entry.getValue().getElements();
+            objectMap[i][2] = entry.getValue().getColor();
+            objectMap[i][3] = entry.getValue().getMetals();
+            objectMap[i][4] = entry.getValue().getVegetables();
+            i++;
+        }
+        return objectMap;
     }
 }
