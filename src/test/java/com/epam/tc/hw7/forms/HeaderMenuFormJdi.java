@@ -12,5 +12,4 @@ public class HeaderMenuFormJdi extends Form {
     public void selectMetalsColorsMenu() {
         headerBar.select("Metals & Colors");
     }
-
 }
