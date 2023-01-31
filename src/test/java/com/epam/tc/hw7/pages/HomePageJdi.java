@@ -5,13 +5,13 @@ import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.ui.html.elements.common.Icon;
 import com.epam.tc.hw7.entities.User;
-import com.epam.tc.hw7.forms.HeaderMenuFormJdi;
+import com.epam.tc.hw7.forms.HeaderMenuJdi;
 import com.epam.tc.hw7.forms.LoginFormJdi;
 
 public class HomePageJdi extends WebPage {
 
     public LoginFormJdi loginFormJdi;
-    public HeaderMenuFormJdi headerMenuFormJdi;
+    public HeaderMenuJdi headerMenuJdi;
 
     @FindBy(id = "user-icon")
     public Icon userIcon;
@@ -33,6 +33,6 @@ public class HomePageJdi extends WebPage {
     }
 
     public void openMetalsColorsPage() {
-        headerMenuFormJdi.selectMetalsColorsMenu();
+        headerMenuJdi.selectMetalsColorsMenu();
     }
 }

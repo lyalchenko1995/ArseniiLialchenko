@@ -29,7 +29,7 @@ public class StepsHW7 {
     }
 
     public static void checkResultSection(MetalsColorsJsonDTO dto, List<String> logLost) {
-        String expectedSummary = "Summary: " + String.valueOf(dto.getSummary().get(0) + dto.getSummary().get(1));
+        final String expectedSummary = "Summary: " + String.valueOf(dto.getSummary().get(0) + dto.getSummary().get(1));
         String expectedElements = "Elements: ";
         final String expectedColor = "Color: " + dto.getColor();
         final String expectedMetal = "Metal: " + dto.getMetals();
