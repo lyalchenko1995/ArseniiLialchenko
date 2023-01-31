@@ -30,6 +30,7 @@ public class JdiTest {
     @Test(dataProvider = "json", dataProviderClass = MetalColorsDataProvider.class)
     public void testMetalsColors(MetalsColorsJsonDTO dto) {
         StepsHW7.navigateToMetalsColorsPage();
-        StepsHW7.checkMetalsColorsForm(dto);
+        StepsHW7.fillMetalsColorsFormStep(dto);
+        StepsHW7.checkMetalsColorsFormStep(dto);
     }
 }

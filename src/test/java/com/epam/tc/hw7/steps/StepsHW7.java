@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.epam.tc.TestData;
 import com.epam.tc.hw7.SiteJdi;
 import com.epam.tc.hw7.entities.MetalsColorsJsonDTO;
+import java.util.Arrays;
 import java.util.List;
 
 public class StepsHW7 {
@@ -19,30 +20,37 @@ public class StepsHW7 {
         SiteJdi.homePageJdi.openMetalsColorsPage();
     }
 
-    public static void checkMetalsColorsForm(MetalsColorsJsonDTO dto) {
-        SiteJdi.metalsColorsPage.metalsColorsForm.selectSummary(dto.getSummary());
-        SiteJdi.metalsColorsPage.metalsColorsForm.selectElements(dto.getElements());
-        SiteJdi.metalsColorsPage.metalsColorsForm.selectColors(dto.getColor());
-        SiteJdi.metalsColorsPage.metalsColorsForm.selectMetals(dto.getMetals());
-        SiteJdi.metalsColorsPage.metalsColorsForm.selectVegetables(dto.getVegetables());
-        SiteJdi.metalsColorsPage.metalsColorsForm.submit();
+    public static void fillMetalsColorsFormStep(MetalsColorsJsonDTO dto) {
+        SiteJdi.metalsColorsPage.metalsColorsForm.fillMetalsColorsForm(dto);
+    }
+
+    public static void checkMetalsColorsFormStep(MetalsColorsJsonDTO dto) {
         checkResultSection(dto, SiteJdi.metalsColorsPage.metalsColorsLogForm.getLogList());
     }
 
     public static void checkResultSection(MetalsColorsJsonDTO dto, List<String> logLost) {
         String expectedSummary = "Summary: " + String.valueOf(dto.getSummary().get(0) + dto.getSummary().get(1));
+        String expectedElements = "Elements: ";
+        final String expectedColor = "Color: " + dto.getColor();
+        final String expectedMetal = "Metal: " + dto.getMetals();
+        String expectedVegetables = "Vegetables: ";
+
         assertThat(logLost.get(0)).isEqualTo(expectedSummary);
-
         for (String str : dto.getElements()) {
-            assertThat(logLost.get(1).contains(str));
+            expectedElements += str + ", ";
         }
-
-        assertThat(logLost.get(2)).isEqualTo("Color: " + dto.getColor());
-
-        assertThat(logLost.get(3)).isEqualTo("Metal: " + dto.getMetals());
+        expectedElements = expectedElements.substring(0, expectedElements.length() - 2);
 
         for (String str : dto.getVegetables()) {
-            assertThat(logLost.get(4)).contains(str);
+            expectedVegetables += str + ", ";
         }
+        expectedVegetables = expectedVegetables.substring(0, expectedVegetables.length() - 2);
+
+        List<String> expectedList =
+                Arrays.asList(expectedSummary, expectedElements, expectedColor, expectedMetal, expectedVegetables);
+        List<String> actualList =
+                Arrays.asList(logLost.get(0), logLost.get(1), logLost.get(2), logLost.get(3), logLost.get(4));
+
+        assertThat(actualList).isEqualTo(expectedList);
     }
 }

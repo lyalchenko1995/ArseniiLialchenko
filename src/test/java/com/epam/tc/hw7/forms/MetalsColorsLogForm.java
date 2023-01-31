@@ -13,8 +13,8 @@ public class MetalsColorsLogForm extends Form {
 
     public List<String> getLogList() {
         List<String> logList = new ArrayList<>();
-        for (int i = 1; i < 6; i++) {
-            logList.add(String.valueOf(result.get(i).getText()));
+        for (int i = 1; i < result.size() + 1; i++) {
+            logList.add(result.get(i).getText());
         }
         return logList;
     }

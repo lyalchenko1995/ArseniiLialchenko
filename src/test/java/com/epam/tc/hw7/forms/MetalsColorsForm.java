@@ -9,9 +9,10 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.MultiDropdown;
+import com.epam.tc.hw7.entities.MetalsColorsJsonDTO;
 import java.util.List;
 
-public class MetalsColorsForm extends Form {
+public class MetalsColorsForm extends Form<MetalsColorsJsonDTO> {
 
     @FindBy(xpath = "//p[@class='radio'][contains(., '%s')]//label")
     public Menu summary;
@@ -65,5 +66,14 @@ public class MetalsColorsForm extends Form {
 
     public void submit() {
         submitButton.click();
+    }
+
+    public void fillMetalsColorsForm(MetalsColorsJsonDTO dto) {
+        selectSummary(dto.getSummary());
+        selectElements(dto.getElements());
+        selectColors(dto.getColor());
+        selectMetals(dto.getMetals());
+        selectVegetables(dto.getVegetables());
+        submit();
     }
 }
