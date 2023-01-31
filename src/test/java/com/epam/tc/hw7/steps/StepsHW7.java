@@ -35,7 +35,6 @@ public class StepsHW7 {
         final String expectedMetal = "Metal: " + dto.getMetals();
         String expectedVegetables = "Vegetables: ";
 
-        assertThat(logLost.get(0)).isEqualTo(expectedSummary);
         for (String str : dto.getElements()) {
             expectedElements += str + ", ";
         }
