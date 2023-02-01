@@ -68,7 +68,8 @@ public class MetalsColorsForm extends Form<MetalsColorsJsonDTO> {
         submitButton.click();
     }
 
-    public void fillMetalsColorsForm(MetalsColorsJsonDTO dto) {
+    @Override
+    public void fill(MetalsColorsJsonDTO dto) {
         selectSummary(dto.getSummary());
         selectElements(dto.getElements());
         selectColors(dto.getColor());

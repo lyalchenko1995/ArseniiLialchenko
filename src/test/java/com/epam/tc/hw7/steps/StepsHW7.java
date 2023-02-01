@@ -21,7 +21,7 @@ public class StepsHW7 {
     }
 
     public static void fillMetalsColorsFormStep(MetalsColorsJsonDTO dto) {
-        SiteJdi.metalsColorsPage.metalsColorsForm.fillMetalsColorsForm(dto);
+        SiteJdi.metalsColorsPage.metalsColorsForm.fill(dto);
     }
 
     public static void checkMetalsColorsFormStep(MetalsColorsJsonDTO dto) {
